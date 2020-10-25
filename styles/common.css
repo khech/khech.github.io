@@ -40,3 +40,22 @@ h4 {
 	font-weight: 300;
 	color: #696969;
 }
+
+h5 {
+	font-family: Roboto;
+	font-size: 18px;
+	margin-right: 28px;
+	color: #373737;
+	margin-top: 0px;
+	font-weight: 900;
+	margin-bottom: -10px;
+}
+
+h6 {
+	font-family: Roboto;
+	color: #696969;
+	font-size: 18px;
+	margin-right: 28px;
+	font-weight: 300;
+	margin-bottom: -30px;
+}
