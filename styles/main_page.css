@@ -10,6 +10,13 @@ body, td, th {
 	position: relative;
 	}
 
+.social {
+	display: inline-block;
+	margin-top: 18px;
+	position: absolute;
+	margin-left: 580px;
+}
+
 #titles_body {
 	display: inline-block;
 	margin-left: 30px;
