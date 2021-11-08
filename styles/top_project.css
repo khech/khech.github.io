@@ -134,6 +134,10 @@ p.img {
 	opacity: .5;
 }
 
+#info:hover {
+	opacity: 1;
+}
+
 #ano {
 	display: none;
 	background-color: #F5F5F5;
