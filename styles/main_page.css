@@ -17,142 +17,78 @@ body, td, th {
 	margin-left: 590px;
 }
 
-#titles_body {
-	display: inline-block;
-	margin-left: 30px;
-}
-#titles_body_hide {
-	display: none;
-}
-#more_button{
-	height: 35px;
-	width: 220px;
-	margin-top: 50px;
-	margin-left: 15px;
-	border: thin solid #696969;
-	text-align: center;
-	line-height: 30px;
-	cursor: pointer;
-}
-#more_button:hover {
-	background-color: #FF0086;
-	color:#FFFFFF;
-	border-color:#FFFFFF;
-	
-}
-#column_1
-{
-	width: 460px;
-	display: inherit;
-	position: relative;
-	margin-right:30px;
-	}
-#column_2
-{ width: 460px;
-	display: inherit;
-	position: relative;
-	}
-
-.titles {
-	display: inherit;
-	margin-top: 30px;
-	position: relative;
-	width: 460px;
-}
-.titles_more {
-	display: inherit;
-	margin-top: 30px;
-	position: relative;
-	width: 460px;
-}
-.titles_sq {
-	display: inline-block;
-	width: 200px;
-	height:200px;
-	position: relative;
-	text-align:center;
-	margin-top: 30px;
+/* Контейнер галереи */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* десктоп: 2 колонки */
+  gap: 24px;
+  max-width: 1010px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.titles_sq_2 {
-	display: inline-block;
-	width: 200px;
-	height: 200px;
-	margin-left: 40px;
-	position: relative;
-	text-align: center;
-	margin-top: 30px;
+/* Обычный прямоугольный тайл */
+.tile {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  grid-column: span 1;
+}
+.tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.titles_sq_more {
-	display: inline-block;
-	width: 200px;
-	height:200px;
-	margin-top: 30px;
-	position: relative;
-	text-align:center;
+/* Пара квадратов как «один ряд» */
+.row {
+  grid-column: 1 / -1;              /* занимает всю строку сетки */
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* внутри — два квадрата */
+  gap: 24px;
 }
+.square {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+.square img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;              /* идеальный квадрат на любой ширине */
+  object-fit: cover;
+}
+
+/* Подпись-оверлей (как было) */
 .name_block {
-	height: 50px;
-	line-height: 50px;
-	background-color: #FFFFFF;
-	position: absolute;
-	text-align: center;
-	font-family: roboto;
-	display: none;
-	z-index: 8888;
-	right: 40px;
-	bottom: 40px;
-	padding-right: 20px;
-	padding-left: 30px;
-	vertical-align: middle;
-	font-size: 25px;
-	font-weight: 400;
-	color: #f5002d;
-}
-.titles:hover .name_block {
-	display: inline-block;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 10px 12px;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
 }
 
-.titles_sq:hover .name_block {
-	display: inline-block;
+@media (hover: hover) {
+  .tile:hover .name_block,
+  .square:hover .name_block { opacity: 1; }
 }
 
-.titles_sq_2:hover .name_block {
-	display: inline-block;
+/* Мобильный: прямоугольники — в одну колонку, квадраты остаются рядом */
+@media (max-width: 899px) {
+  .gallery {
+    grid-template-columns: 1fr;     /* одна колонка */
+  }
+  .tile {
+    grid-column: 1 / -1;            /* занимает всю ширину строки */
+  }
+  /* .row уже делит строку на 2 квадрата — остаются слева/справа */
 }
 
-.main_title {
-	width: 470px;
-	position: absolute;
-	top: 10px;
-	text-align: left;
-	}
-#all_but {
-	display: inline-block;
-	position: absolute;
-	height: 50px;
-	margin-left: 60px;
-	}
-.head_but {
-	width: 100px;
-	height: 50px;
-	line-height: 50px;
-	display: inline-block;
-	color: #909090;
-	font-family: 'Roboto', sans-serif;
-	font-size: 18px;
-	font-weight: 300;
-	text-align: center;
-	margin-top: 24px;
-	margin-left: 50px;
-	cursor:pointer;
-}
-.head_but:hover {
-	background-color: #FF0086;
-	color: #FFFFFF;
-	font-weight: 400;
-}
+
 .sign {
 	margin-left: 825px;
 	margin-top: 30px;
