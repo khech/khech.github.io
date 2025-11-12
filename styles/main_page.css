@@ -1,0 +1,160 @@
+@charset "utf-8";
+body, td, th {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width: 1010px;
+	color: #696969;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 100px;
+	position: relative;
+	}
+
+.social {
+	display: inline-block;
+	margin-top: 18px;
+	position: absolute;
+	margin-left: 590px;
+}
+
+#titles_body {
+	display: inline-block;
+	margin-left: 30px;
+}
+#titles_body_hide {
+	display: none;
+}
+#more_button{
+	height: 35px;
+	width: 220px;
+	margin-top: 50px;
+	margin-left: 15px;
+	border: thin solid #696969;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+#more_button:hover {
+	background-color: #FF0086;
+	color:#FFFFFF;
+	border-color:#FFFFFF;
+	
+}
+#column_1
+{
+	width: 460px;
+	display: inherit;
+	position: relative;
+	margin-right:30px;
+	}
+#column_2
+{ width: 460px;
+	display: inherit;
+	position: relative;
+	}
+
+#titles {
+	display: inherit;
+	margin-top: 30px;
+	position: relative;
+	width: 460px;
+}
+#titles_more {
+	display: inherit;
+	margin-top: 30px;
+	position: relative;
+	width: 460px;
+}
+#titles_sq {
+	display: inline-block;
+	width: 200px;
+	height:200px;
+	position: relative;
+	text-align:center;
+	margin-top: 30px;
+}
+
+#titles_sq_2 {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin-left: 40px;
+	position: relative;
+	text-align: center;
+	margin-top: 30px;
+}
+
+#titles_sq_more {
+	display: inline-block;
+	width: 200px;
+	height:200px;
+	margin-top: 30px;
+	position: relative;
+	text-align:center;
+}
+#name_block {
+	height: 50px;
+	line-height: 50px;
+	background-color: #FFFFFF;
+	position: absolute;
+	text-align: center;
+	font-family: roboto;
+	display: none;
+	z-index: 8888;
+	right: 40px;
+	bottom: 40px;
+	padding-right: 20px;
+	padding-left: 30px;
+	vertical-align: middle;
+	font-size: 25px;
+	font-weight: 400;
+	color: #f5002d;
+}
+#titles:hover #name_block {
+	display: inline-block;
+}
+
+#titles_sq:hover #name_block {
+	display: inline-block;
+}
+
+#titles_sq_2:hover #name_block {
+	display: inline-block;
+}
+
+.main_title {
+	width: 470px;
+	position: absolute;
+	top: 10px;
+	text-align: left;
+	}
+#all_but {
+	display: inline-block;
+	position: absolute;
+	height: 50px;
+	margin-left: 60px;
+	}
+.head_but {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	display: inline-block;
+	color: #909090;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+	margin-top: 24px;
+	margin-left: 50px;
+	cursor:pointer;
+}
+.head_but:hover {
+	background-color: #FF0086;
+	color: #FFFFFF;
+	font-weight: 400;
+}
+.sign {
+	margin-left: 825px;
+	margin-top: 30px;
+	
+}

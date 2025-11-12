@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+#project_hat {
+	widh: 100%;
+	position: relative;
+	height: 72px;
+}
+.title {
+	display: inline-block;
+	height: 72px;
+	margin-left: 30px;
+}
+
+.middle_text {
+width: 600px;
+margin:auto;
+text-align: center;
+}
+
+h1 {
+	font-family: Roboto;
+	font-size: 24px;
+	margin-right: 28px;
+	color: #373737;
+	margin-top: 0px;
+	font-weight: 900;
+	margin-bottom: -10px;
+}
+h2 {
+	font-family: Roboto;
+	color: #696969;
+	font-size: 18px;
+	margin-right: 28px;
+	font-weight: 300;
+	margin-bottom: 30px;
+}
+h3 {
+	font-family: Roboto;
+	font-size: 22px;
+	font-weight: 400;
+	color: #5A5A5A;
+	margin-top: 50px;
+}
+h4 {
+	font-family: Roboto;
+	font-size: 18px;
+	font-weight: 300;
+	color: #696969;
+}
+
+h5 {
+	font-family: Roboto;
+	font-size: 18px;
+	margin-right: 28px;
+	color: #373737;
+	margin-top: 0px;
+	font-weight: 900;
+	margin-bottom: -10px;
+}
+
+h6 {
+	font-family: Roboto;
+	color: #696969;
+	font-size: 18px;
+	margin-right: 28px;
+	font-weight: 300;
+	margin-bottom: -30px;
+}
