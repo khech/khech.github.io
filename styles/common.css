@@ -69,3 +69,23 @@ h6 {
 	margin-bottom: -30px;
 }
 
+/* Archive page content */
+.archive-content {
+	margin-left: 30px;
+	margin-top: 50px;
+}
+
+.archive-content h3 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.archive-content a {
+	color: #373737;
+	text-decoration: none;
+}
+
+.archive-content a:hover {
+	text-decoration: underline;
+}
+

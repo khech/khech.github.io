@@ -109,7 +109,7 @@ body, td, th {
 	font-weight: 400;
 	color: #f5002d;
 }
-.titles:hover .name_block {
+.titles:hover > a > .name_block {
 	display: inline-block;
 }
 
@@ -126,4 +126,36 @@ body, td, th {
 	margin-left: 825px;
 	margin-top: 30px;
 	
+}
+
+/* Archive link section at bottom of index */
+.archive-link-section {
+	margin-top: 50px;
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+.archive-link {
+	display: inline-block;
+	font-family: Roboto, sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+	color: #373737;
+	text-decoration: underline;
+}
+
+/* Cross button for index page */
+.cross_blank {
+	display: inline-block;
+	margin-top: 18px;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	right: 28px;
+	background-color: #737373;
+	text-align: center;
+}
+
+.cross_blank:hover {
+	background-color: #FF0086;
 }
