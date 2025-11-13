@@ -4,6 +4,8 @@
 	widh: 100%;
 	position: relative;
 	height: 72px;
+	margin-top: 100px;
+	margin-bottom: 50px;
 }
 .title {
 	display: inline-block;
@@ -19,7 +21,7 @@ text-align: center;
 
 h1 {
 	font-family: Roboto;
-	font-size: 24px;
+	font-size: 46px;
 	margin-right: 28px;
 	color: #373737;
 	margin-top: 0px;
@@ -29,14 +31,14 @@ h1 {
 h2 {
 	font-family: Roboto;
 	color: #696969;
-	font-size: 18px;
+	font-size: 28px;
 	margin-right: 28px;
 	font-weight: 300;
 	margin-bottom: 30px;
 }
 h3 {
 	font-family: Roboto;
-	font-size: 22px;
+	font-size: 28px;
 	font-weight: 400;
 	color: #5A5A5A;
 	margin-top: 50px;
@@ -66,3 +68,4 @@ h6 {
 	font-weight: 300;
 	margin-bottom: -30px;
 }
+
