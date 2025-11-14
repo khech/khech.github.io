@@ -127,6 +127,7 @@ p.img {
 	color: #35B4DB;
 }
 
+/* REMOVED/COMMENTED OUT - #info, #ano, .ano_blank styles
 #info {
 	position:fixed;
 	margin-left: 25px;
@@ -167,6 +168,7 @@ p.img {
 .ano_blank a {
 	color: #FF3385;
 }
+END REMOVED/COMMENTED OUT */
 .idTop {
 	position: absolute;
 	z-index: 9999;
