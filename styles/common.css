@@ -102,4 +102,28 @@ h6 {
 }
 
 
+/* Строка с двумя типами текста — ТОЛЬКО про layout */
+.two_types_row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+    margin-bottom: 8px;
 
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Заголовок внутри row — убираем margin от глобального h3 */
+.two_types_row .row_title {
+    margin: 0 !important;
+    line-height: inherit;
+}
+
+/* Тег */
+.row_tag {
+    font-size: 0.8em;
+    white-space: nowrap;
+    opacity: 0.7;
+    margin-top: 8px; /* только небольшая коррекция */
+}
