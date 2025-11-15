@@ -26,6 +26,24 @@
     color: inherit;
     text-decoration: underline;
 }
+
+.copy-email {
+    cursor: pointer;
+}
+
+.copy-icon-inline {
+    height: 0.7em;           /* размер примерно с текст */
+    width: auto;
+    margin-left: 4px;      /* небольшой отступ справа от текста */
+    vertical-align: middle; /* выравнивание по середине строки */
+    pointer-events: none;  /* клики идут по слову, иконка только для вида */
+}
+
+/* лёгкий визуальный отклик после копирования (по желанию) */
+.copy-email.copied {
+    opacity: 0.7;
+}
+
 </style>
 </head>
 
@@ -46,8 +64,13 @@
 <h3>Hello! I'm Arseniy. I'm open to collaborations and feedback — here you can find my contacts.</h3>
 
 <h3>
-    Feel free to text me on <a href="https://t.me/khech" class="contact-link" target="_blank" rel="noopener">Telegram</a>
-    or <a href="mailto:arsekh@gmail.com" class="contact-link" target="_blank" rel="noopener">email</a> me.
+Feel free to text me on
+    <a href="https://t.me/khech" class="contact-link" target="_blank" rel="noopener">Telegram</a>
+    or mail me on
+    <span class="contact-link copy-email" data-email="arsekh@gmail.com">
+        arsekh@gmail.com
+        <img src="images/markup/copy.png" alt="Copy email" class="copy-icon-inline">
+    </span>
 </h3>
 
 <h3>
@@ -55,7 +78,7 @@
     and <a href="https://www.instagram.com/khech_art" class="contact-link" target="_blank" rel="noopener">art Instagram</a>,
     as well as on <a href="https://www.facebook.com/khech.arse" class="contact-link" target="_blank" rel="noopener">Facebook</a>,
     <a href="https://www.linkedin.com/in/arseniy-khechinashvili-580169a3/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a> and
-    <a href="https://pin.it/3hEnJPS17" class="contact-link" target="_blank" rel="noopener">Pinterest</a>.
+    <a href="https://pin.it/3hEnJPS17" class="contact-link" target="_blank" rel="noopener">Pinterest</a>
 </h3>
 
 </div>
@@ -65,6 +88,34 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.copy-email').forEach(function (el) {
+        el.addEventListener('click', function () {
+            var email = el.getAttribute('data-email') || el.textContent.trim();
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(function () {
+                    el.classList.add('copied');
+                    setTimeout(function () {
+                        el.classList.remove('copied');
+                    }, 800);
+                });
+            } else {
+                // fallback для старых браузеров (скорее всего тебе не понадобится)
+                var textarea = document.createElement('textarea');
+                textarea.value = email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(textarea);
+            }
+        });
+    });
+});
+</script>
+
 
 </body>
 </html>
