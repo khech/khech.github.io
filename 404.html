@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>404 – Page not found</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/markup/favicon.ico" type="image/x-icon">
+
+    <!-- только шрифт Roboto, без общих стилей сайта -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&subset=cyrillic" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #373737;
+        }
+
+        /* Контейнер, который центрирует всё по экрану */
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;      /* вертикальный центр */
+            justify-content: center;  /* горизонтальный центр */
+        }
+
+        /* Внутренний блок */
+        .error-wrapper {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .error-code {
+            font-size: 46px;      /* как твой h1 */
+            font-weight: 900;
+            margin: 0 0 10px;
+        }
+
+        .error-title {
+            font-size: 28px;      /* как h2/h3 */
+            font-weight: 400;
+            margin: 0 0 20px;
+            color: #5A5A5A;
+        }
+
+        .error-text {
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0 0 24px;
+            color: #696969;
+        }
+
+        .error-image {
+            margin: 20px 0 30px;
+        }
+
+        .error-image img {
+            max-width: 260px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .error-link {
+            font-size: 18px;
+            font-weight: 400;
+            text-decoration: underline;
+            color: #000000;
+        }
+
+        .error-link:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="error-page">
+        <div class="error-wrapper">
+
+            <div class="error-code">404</div>
+            <div class="error-title">Page not found</div>
+
+            <div class="error-image">
+              
+                <img src="images/markup/sily cat.gif" alt="Error cat">
+            </div>
+
+            <p class="error-text">
+                The page you are looking for doesn’t exist or has been moved.
+            </p>
+
+            <a href="/" class="error-link">Back to main page</a>
+        </div>
+    </div>
+
+</body>
+</html>
