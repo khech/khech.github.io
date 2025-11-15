@@ -70,16 +70,28 @@
             margin: 0 auto;
         }
 
-        .error-link {
-            font-size: 18px;
-            font-weight: 400;
-            text-decoration: underline;
-            color: #000000;
-        }
-
         .error-link:hover {
             text-decoration: none;
         }
+
+        @media (max-width: 600px) {
+    .error-code {
+        font-size: 64px;   
+    }
+
+    .error-title {
+        font-size: 32px;  
+    }
+
+    .error-text {
+        font-size: 20px;  
+    }
+
+    .error-image img {
+        max-width: 300px;  
+    }
+}
+
     </style>
 </head>
 
