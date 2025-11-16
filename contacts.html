@@ -20,34 +20,10 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic&amp" rel="stylesheet">
 <link href="styles/common.css" rel="stylesheet" type="text/css">
 
-<style>
-/* Локально для этой страницы: ссылки как обычный текст, но с подчёркиванием */
-.archive-content .contact-link {
-    color: inherit;
-    text-decoration: underline;
-}
-
-.copy-email {
-    cursor: pointer;
-}
-
-.copy-icon-inline {
-    height: 0.7em;           /* размер примерно с текст */
-    width: auto;
-    margin-left: 4px;      /* небольшой отступ справа от текста */
-    vertical-align: middle; /* выравнивание по середине строки */
-    pointer-events: none;  /* клики идут по слову, иконка только для вида */
-}
-
-/* лёгкий визуальный отклик после копирования (по желанию) */
-.copy-email.copied {
-    opacity: 0.7;
-}
-
-</style>
 </head>
 
 <body>
+<div id="common_body">
 
 <div id="project_hat">
 
@@ -117,5 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
+</div>
 </body>
 </html>
