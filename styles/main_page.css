@@ -135,6 +135,23 @@ display: block;        /* grid сам управляет шириной ячей
 	display: inline-block;
 }
 
+/* Псевдо-hover для тач-устройств: тот же эффект, что и :hover */
+.titles.touch-hover > a > .name_block {
+	display: inline-block;
+}
+
+.titles_sq.touch-hover .name_block {
+	display: inline-block;
+}
+
+.titles_sq_2.touch-hover .name_block {
+	display: inline-block;
+}
+
+/* Опционально: можно немного ослабить обычный hover на тач-устройствах,
+   но большую часть работы будет делать JS */
+
+
 /* Archive link section at bottom of index */
 .archive-link-section {
 	margin-top: 50px;
