@@ -166,7 +166,7 @@ display: block;        /* grid сам управляет шириной ячей
 
 
 	/* Заголовок и подзаголовок во всю ширину с отступами */
-	
+
 	.index-title h1 {
 		/* делаем агрессивнее: больше vw и выше максимум */
 		font-size: clamp(36px, 14vw, 60px);
@@ -176,7 +176,7 @@ display: block;        /* grid сам управляет шириной ячей
 
 	.index-title h2 {
 		/* пропорционально меньше, примерно вдвое */
-		font-size: clamp(18px, 7vw, 30px);
+		font-size: clamp(18px, 6vw, 30px);
 		line-height: 1.2;
 		margin: 0 0 20px 0;
 	}
