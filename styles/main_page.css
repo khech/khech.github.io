@@ -148,6 +148,10 @@ display: block;        /* grid сам управляет шириной ячей
 
 @media (max-width: 768px) {
 
+	:root {
+	--tile-gap: 15px;
+}
+
 	#common_body {
 		max-width: 100%;
 		margin: 20px auto 60px auto;
@@ -173,11 +177,6 @@ display: block;        /* grid сам управляет шириной ячей
 		position: static;
 		text-align: left;
 		margin: 16px 0 4px;
-	}
-
-	.contacts-link {
-		font-size: 18px;
-		line-height: 1.4;
 	}
 
 	/* Галерея на мобиле – один столбец */
