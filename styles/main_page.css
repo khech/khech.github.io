@@ -166,15 +166,18 @@ display: block;        /* grid сам управляет шириной ячей
 
 
 	/* Заголовок и подзаголовок во всю ширину с отступами */
+	
 	.index-title h1 {
-		font-size: clamp(32px, 9vw, 46px);
-		line-height: 1.1;
+		/* делаем агрессивнее: больше vw и выше максимум */
+		font-size: clamp(36px, 14vw, 60px);
+		line-height: 1.05;
 		margin: 0 0 4px 0;
 	}
 
 	.index-title h2 {
-		font-size: clamp(18px, 4.5vw, 24px);
-		line-height: 1.3;
+		/* пропорционально меньше, примерно вдвое */
+		font-size: clamp(18px, 7vw, 30px);
+		line-height: 1.2;
 		margin: 0 0 20px 0;
 	}
 
@@ -182,8 +185,8 @@ display: block;        /* grid сам управляет шириной ячей
 	   (при условии, что в index.html блок .social стоит в разметке над заголовком Selected) */
 	.social {
 		position: static;
-		text-align: left;
-		margin: 16px 0 4px;
+		text-align: right;
+		margin: 75px 0 4px;
 	}
 
 	/* Галерея на мобиле – один столбец */
