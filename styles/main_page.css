@@ -4,6 +4,11 @@
 	--tile-gap: 30px;
 }
 
+#common_body {
+	padding-left: var(--tile-gap);
+	padding-right: var(--tile-gap);
+}
+
 .social {
 	position: absolute;
     right: 0px;
@@ -155,8 +160,10 @@ display: block;        /* grid сам управляет шириной ячей
 	#common_body {
 		max-width: 100%;
 		margin: 20px auto 60px auto;
-		padding: 0 16px;
+		padding-left: var(--tile-gap);
+		padding-right: var(--tile-gap);
 	}
+
 
 	/* Заголовок и подзаголовок во всю ширину с отступами */
 	.index-title h1 {
