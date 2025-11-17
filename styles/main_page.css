@@ -9,6 +9,12 @@
 	padding-right: var(--tile-gap);
 }
 
+.nav-link-main {
+    color: #373737;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 .social {
 	position: absolute;
     right: 0px;
@@ -16,15 +22,6 @@
     text-align: right;
 }
 
-/* Index-only contacts link */
-.contacts-link {
-	display: inline-block;
-	font-size: 24px;
-	font-weight: 600;
-	color: #373737;
-	line-height: 72px;
-	text-decoration: underline;
-}
 
 /* Index-only title sizing: targets only the index page header */
 .index-title h1 {
@@ -43,10 +40,7 @@
 
 /* Index-only projects section heading */
 .projects-heading {
-	font-family: Roboto, sans-serif;
-	font-size: 24px;
 	font-weight: 600;
-	color: #373737;
 	margin-top: 150px;
 	margin-bottom: 10px;
 }
@@ -114,14 +108,14 @@ display: block;        /* grid сам управляет шириной ячей
 	font-family: roboto;
 	display: none;
 	z-index: 8888;
-	right: 40px;
-	bottom: 40px;
-	padding-right: 20px;
-	padding-left: 30px;
+	left: 40px;
+	top: 40px;
+	padding-right: 15px;
+	padding-left: 17px;
 	vertical-align: middle;
-	font-size: 25px;
-	font-weight: 400;
-	color: #f5002d;
+	font-size: 28px;
+	font-weight: 500;
+	color: #373737;
 }
 .titles:hover > a > .name_block {
 	display: inline-block;
@@ -155,17 +149,7 @@ display: block;        /* grid сам управляет шириной ячей
 /* Archive link section at bottom of index */
 .archive-link-section {
 	margin-top: 50px;
-	margin-left: 30px;
 	margin-bottom: 30px;
-}
-
-.archive-link {
-	display: inline-block;
-	font-family: Roboto, sans-serif;
-	font-size: 24px;
-	font-weight: 600;
-	color: #373737;
-	text-decoration: underline;
 }
 
 @media (max-width: 768px) {
