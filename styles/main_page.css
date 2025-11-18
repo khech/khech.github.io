@@ -126,7 +126,7 @@ display: block;        /* grid сам управляет шириной ячей
 	.index-title h1 {
 		/* делаем агрессивнее: больше vw и выше максимум */
 		white-space: nowrap; 
-		font-size: clamp(36px, 14vw, 60px);
+		font-size: clamp(28px, 14vw, 45px);
 		line-height: 1.05;
 		margin: 0 0 4px 0;
 	}
