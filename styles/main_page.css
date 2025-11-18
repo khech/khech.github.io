@@ -25,6 +25,7 @@
 
 /* Index-only title sizing: targets only the index page header */
 .index-title h1 {
+	font-family: "Work Sans", "Roboto";
 	font-size: 65px; /* larger for index page only - change as needed */
 	font-weight: 900;
 	margin-bottom: -30px;
@@ -114,10 +115,12 @@ display: block;        /* grid сам управляет шириной ячей
 }
 
 	#common_body {
+		width: 100%;  
 		max-width: 100%;
-		margin: 20px auto 60px auto;
+		margin: 0;
 		padding-left: var(--tile-gap);
 		padding-right: var(--tile-gap);
+		box-sizing: border-box;
 	}
 
 
@@ -125,6 +128,7 @@ display: block;        /* grid сам управляет шириной ячей
 
 	.index-title h1 {
 		/* делаем агрессивнее: больше vw и выше максимум */
+		font-family: "Work Sans", "Roboto";
 		white-space: nowrap; 
 		font-size: clamp(28px, 14vw, 45px);
 		line-height: 1.05;
