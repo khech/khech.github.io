@@ -92,6 +92,14 @@ h6 {
 	margin-bottom: -30px;
 }
 
+/* Contacts – над Selected Works, по левому краю
+	   (при условии, что в index.html блок .social стоит в разметке над заголовком Selected) */
+	.social {
+		position: static;
+		text-align: right;
+		margin: 75px 0 4px;
+	}
+
 /* Archive page content */
 /* Общий контейнер контента секции (Archive, Contacts и др.) */
 .section-content {
@@ -109,12 +117,12 @@ h6 {
 .page-exit-link {
     position: absolute;
     top: 20px;
-    right: 40px;
+    right: 0px;
     text-decoration: underline;
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 0.5px;
-    color: #373737;
+    color: inherit;
     cursor: pointer;
 }
 
