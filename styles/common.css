@@ -93,19 +93,18 @@ h6 {
 }
 
 /* Archive page content */
-.list-content {
-	margin-left: 0px;
-	margin-top: 50px;
+/* Общий контейнер контента секции (Archive, Contacts и др.) */
+.section-content {
+    margin-left: 0;
+    margin-top: 50px;
 }
 
-.archive-content a {
-	color: inherit;
-	text-decoration: none;
+/* Дополнительно можно оставить, если хочешь управлять ссылками внутри секций отдельно */
+.section-content a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.archive-content a:hover {
-	text-decoration: underline;
-}
 
 .page-exit-link {
     position: absolute;
@@ -120,26 +119,25 @@ h6 {
 }
 
 
-/* Строка с двумя типами текста — ТОЛЬКО про layout */
-.two_types_row {
+/* Универсальная строка списка */
+.list-row {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 5px;
     margin-bottom: 8px;
-
     text-decoration: none;
     color: inherit;
 }
 
-/* Заголовок внутри row — убираем margin от глобального h3 */
-.two_types_row .row_title {
+/* Основной текст строки (обычно h3) */
+.list-row .list-title {
     margin: 0 !important;
     line-height: inherit;
 }
 
-/* Тег */
-.row_tag {
+/* Вторичный текст (тег, тип проекта и т.п.) */
+.list-tag {
     font-size: 0.8em;
     white-space: nowrap;
     opacity: 0.7;
@@ -148,24 +146,32 @@ h6 {
 
 /* Блок стилей страницы Contacts */
 /* Локально для этой страницы: ссылки как обычный текст, но с подчёркиванием */
-.archive-content .contact-link {
+/* Ссылка, стилизованная как текст с подчёркиванием */
+.link-text {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
-.copy-email {
+/* Любой текст, по клику копирующийся в буфер */
+.copyable {
     cursor: pointer;
 }
 
-.copy-icon-inline {
-    height: 0.7em;           /* размер примерно с текст */
+/* Маленькая иконка в строке текста (копирование, стрелочка и т.п.) */
+.icon-inline {
+    height: 0.7em;
     width: auto;
-    margin-left: 4px;      /* небольшой отступ справа от текста */
-    vertical-align: middle; /* выравнивание по середине строки */
-    pointer-events: none;  /* клики идут по слову, иконка только для вида */
+    margin-left: 4px;
+    vertical-align: middle;
+    pointer-events: none;
 }
 
-/* лёгкий визуальный отклик после копирования (по желанию) */
-.copy-email.copied {
+/* Лёгкий визуальный отклик после копирования */
+.copyable.copied {
     opacity: 0.7;
+}
+
+.profile-photo {
+    width: 100%;
+    margin-bottom: 40px;
 }

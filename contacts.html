@@ -36,28 +36,67 @@
 
 </div>
 
-<div class="list-content">
-
-<h3>Hello! I'm Arseniy. I'm open to collaborations and feedback — here you can find my contacts.</h3>
+<div class="section-content">
 
 <h3>
-    <a href="https://t.me/khech" class="contact-link" target="_blank" rel="noopener">Telegram</a><br>
-    <span class="contact-link copy-email" data-email="arsekh@gmail.com">
-        arsekh@gmail.com
-        <img src="images/markup/copy.png" alt="Copy email" class="copy-icon-inline">
-    </span>
+    Hello! I`m Arseniy Khechinashvili. Currently based in Tbilisi, Georgia<br>
+    Here are my contacts if you`d like to connect or collaborate
 </h3>
 
-<h3>
-Social
-</h3>
 
-<h3>
-    <a href="https://www.instagram.com/khech__/" class="contact-link" target="_blank" rel="noopener">Instagram</a><br>
-    <a href="https://www.facebook.com/khech.arse" class="contact-link" target="_blank" rel="noopener">Facebook</a><br>
-    <a href="https://www.linkedin.com/in/arseniy-khechinashvili-580169a3/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a><br>
-    <a href="https://pin.it/3hEnJPS17" class="contact-link" target="_blank" rel="noopener">Pinterest</a>
-</h3>
+<div class="list-row"  style="margin-bottom: 50px;">
+    <h3 class="list-title">
+        <span class="link-text copyable" data-copy="arsekh@gmail.com">
+            arsekh@gmail.com
+            <img src="images/markup/copy.png" alt="" class="icon-inline">
+        </span>
+    </h3>
+</div>
+
+<div class="list-row">
+    <h3 class="list-title">
+        <a href="https://t.me/khech" class="link-text" target="_blank" rel="noopener">Telegram
+            <img src="images/markup/external.png" alt="" class="icon-inline">
+        </a>
+    </h3>
+</div>
+
+<div class="list-row">
+    <h3 class="list-title">
+        <a href="https://www.instagram.com/khech__/" class="link-text" target="_blank" rel="noopener">
+            Instagram
+            <img src="images/markup/external.png" alt="" class="icon-inline">
+        </a>
+    </h3>
+</div>
+
+<div class="list-row">
+    <h3 class="list-title">
+        <a href="https://www.facebook.com/khech.arse" class="link-text" target="_blank" rel="noopener">
+            Facebook
+            <img src="images/markup/external.png" alt="" class="icon-inline">
+        </a>
+    </h3>
+</div>
+
+<div class="list-row">
+    <h3 class="list-title">
+        <a href="https://www.linkedin.com/in/arseniy-khechinashvili-580169a3/" class="link-text" target="_blank" rel="noopener">
+            LinkedIn
+            <img src="images/markup/external.png" alt="" class="icon-inline">
+        </a>
+    </h3>
+</div>
+
+<div class="list-row">
+    <h3 class="list-title">
+        <a href="https://pin.it/3hEnJPS17" class="link-text" target="_blank" rel="noopener">
+            Pinterest
+            <img src="images/markup/external.png" alt="" class="icon-inline">
+        </a>
+    </h3>
+</div>
+
 
 </div>
 
@@ -66,21 +105,20 @@ Social
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.copy-email').forEach(function (el) {
+    document.querySelectorAll('.copyable').forEach(function (el) {
         el.addEventListener('click', function () {
-            var email = el.getAttribute('data-email') || el.textContent.trim();
+            var textToCopy = el.getAttribute('data-copy') || el.textContent.trim();
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(email).then(function () {
+                navigator.clipboard.writeText(textToCopy).then(function () {
                     el.classList.add('copied');
                     setTimeout(function () {
                         el.classList.remove('copied');
                     }, 800);
                 });
             } else {
-                // fallback для старых браузеров (скорее всего тебе не понадобится)
                 var textarea = document.createElement('textarea');
-                textarea.value = email;
+                textarea.value = textToCopy;
                 document.body.appendChild(textarea);
                 textarea.select();
                 try { document.execCommand('copy'); } catch (e) {}
@@ -89,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 </script>
 
 
