@@ -64,8 +64,8 @@ h3 {
 	font-size: 28px;
 	font-weight: 400;
 	color: #373737;
-	margin-top: 50px;
 }
+
 h4 {
 	font-family: Roboto;
 	font-size: 18px;
@@ -93,7 +93,7 @@ h6 {
 }
 
 /* Archive page content */
-.archive-content {
+.list-content {
 	margin-left: 0px;
 	margin-top: 50px;
 }

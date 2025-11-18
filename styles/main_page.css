@@ -68,37 +68,6 @@ display: block;        /* grid сам управляет шириной ячей
 	object-fit: cover;
 }
 
-.titles_sq {
-	display: inline-block;
-	width: 215px;
-	height: 200px;
-	position: relative;
-	text-align: center;
-}
-
-.titles_sq img.tiles {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
-.titles_sq_2 {
-	display: inline-block;
-	width: 215px;
-	height: 200px;
-	/* margin-left: 30px;  ← это можно убрать, если что-то съезжает */
-	position: relative;
-	text-align: center;
-}
-
-.titles_sq_2 img.tiles {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
 .name_block {
 	height: 50px;
 	line-height: 50px;
@@ -115,32 +84,18 @@ display: block;        /* grid сам управляет шириной ячей
 	vertical-align: middle;
 	font-size: 28px;
 	font-weight: 500;
-	color: #373737;
 }
+
 .titles:hover > a > .name_block {
 	display: inline-block;
 }
 
-.titles_sq:hover .name_block {
-	display: inline-block;
-}
-
-.titles_sq_2:hover .name_block {
-	display: inline-block;
-}
 
 /* Псевдо-hover для тач-устройств: тот же эффект, что и :hover */
 .titles.touch-hover > a > .name_block {
 	display: inline-block;
 }
 
-.titles_sq.touch-hover .name_block {
-	display: inline-block;
-}
-
-.titles_sq_2.touch-hover .name_block {
-	display: inline-block;
-}
 
 /* Опционально: можно немного ослабить обычный hover на тач-устройствах,
    но большую часть работы будет делать JS */
@@ -202,4 +157,9 @@ display: block;        /* grid сам управляет шириной ячей
 	.titles {
 		width: 100%;
 	}
+
+	.name_block {
+	left: 20px;
+	top: 20px;
+}
 }
