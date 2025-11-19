@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+    <link rel="shortcut icon" href="images/markup/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+
+    <!-- CANONICAL URL --> 
+    <link rel="canonical" href="https://khech.com/template.html">
+
+    <!-- OPEN GRAPH -->
+    <!-- [OG_TITLE] название проекта -->
+    <meta property="og:title" content="Template Template">
+    <!-- [OG_DESCRIPTION] краткое описание -->
+    <meta property="og:description" content=">
+    <!-- [OG_IMAGE] картинка превью -->
+    <meta property="og:image" content="images/content/project/preview.jpg">
+    <!-- [OG_URL] ссылка на страницу -->
+    <meta property="og:url" content="https://khech.com/PROJECT_NAME.html">
+
+    <!-- === TWITTER CARD === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- [TWITTER_TITLE] -->
+    <meta name="twitter:title" content="PROJECT TITLE">
+    <!-- [TWITTER_DESCRIPTION] -->
+    <meta name="twitter:description" content="PROJECT SHORT DESCRIPTION">
+    <!-- [TWITTER_IMAGE] -->
+    <meta name="twitter:image" content="images/content/project/preview.jpg">
+
+    <!-- === TAB TITLE === -->
+    <!-- [PAGE_TITLE] заголовок вкладки -->
+    <title>PROJECT TITLE</title>
+
+    <!-- Fonts -->
+    <link href="styles/top_project.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
+    <link href="styles/common.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="top_project.css">
+
+</head>
+
+<body>
+<div id="common_body">
+
+    
+
+    <header class="project-header">
+
+        <div class="project-header-titles">
+            <h1 class="project-title">Name Name</h1>
+            <h2 class="project-subtitle">Subname Subname</h2>
+        </div>
+
+        <nav class="project-nav">
+
+            <!-- [NAV_LEFT] ссылка на предыдущий проект -->
+            <a href="PREVIOUS_PROJECT.html">
+                <div class="left_blank" style="opacity: 0.3">
+                    <img src="images/markup/arrow_L.png" alt="" width="32" height="32" align="middle"/>
+                </div>
+            </a>
+
+            <!-- [NAV_RIGHT] ссылка на следующий проект -->
+            <a href="NEXT_PROJECT.html">
+                <div class="right_blank">
+                    <img src="images/markup/arrow_R.png" alt="" width="32" height="32" align="middle"/>
+                </div>
+            </a>
+
+            <!-- [NAV_CLOSE] ссылка на главную -->
+            <a href="/" class="page-exit-link">Main</a>
+
+        </nav>
+
+    </header>
+
+    <main class="project-page">
+
+        <!-- HERO-КАРТИНКА -->
+        <section class="project-hero">
+            <img src="images/markup/Test_Pic_1.jpg"
+                 alt="Test image"
+                 class="project-hero-image">
+        </section>
+
+        <!-- META-БЛОК: TEAM / ROLE / LOCATION / YEAR -->
+        <section class="project-meta">
+            <div class="project-meta-col project-meta-col--left">
+                <p class="project-meta-item">Team: Khech Group</p>
+                <p class="project-meta-item">Role: Senior Architect</p>
+            </div>
+
+            <div class="project-meta-col project-meta-col--right">
+                <p class="project-meta-item">Tbilisi, Georgia</p>
+                <p class="project-meta-item">2099</p>
+            </div>
+        </section>
+
+       <!-- БЛОК: PUBLIC SPACE (ТЕКСТ + КАРТИНКА) -->
+        <section class="project-section project-section--split">
+            <div class="project-section-body">
+                <div class="project-section-text">
+                    <h3 class="project-section-title">Public space</h3>
+                    <p class="project-text">
+                        The public spaces are designed as a sequence of open terraces
+                        and semi-private courtyards. They connect the buildings with
+                        the landscape and create comfortable routes for residents.
+                    </p>
+                    <p class="project-text">
+                        Each level offers different views and scenarios of interaction
+                        with the city and the hills, forming a gradual transition from
+                        public to private.
+                    </p>
+                </div>
+
+                <figure class="project-section-image">
+                    <img src="images/markup/Test_Pic_1.jpg"
+                         alt="Test image">
+                </figure>
+            </div>
+        </section>
+
+
+        <!-- БЛОК: КАРТИНКА + КАРТИНКА -->
+        <section class="project-section project-section--split project-section--image-image">
+            <div class="project-section-body">
+                <figure class="project-section-image">
+                    <img src="images/markup/Test_Pic_1.jpg"
+                         alt="Test image">
+                </figure>
+                <figure class="project-section-image">
+                    <img src="images/markup/Test_Pic_2.jpg"
+                         alt="Test Image">
+                </figure>
+            </div>
+        </section>
+
+        <!-- ПОЛНОШИРИННАЯ КАРТИНКА В СЕРЕДИНЕ СТРАНИЦЫ -->
+        <section class="project-section project-section--full">
+            <figure class="project-section-image project-section-image--full">
+                <img src="images/markup/Test_Pic_1.jpg"
+                     alt="Test Image">
+            </figure>
+        </section>
+
+    </main>
+        
+    <div class="idTop">
+        <img src="images/markup/arrow_top.png" width="64" height="64" alt="up"/>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.idTop').click(function(){
+                $('html, body').animate({scrollTop:0}, 'slow');
+            });
+        });
+    </script>
+
+</body>
+</html>
