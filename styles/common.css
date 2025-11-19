@@ -94,14 +94,6 @@ h6 {
 	margin-bottom: -30px;
 }
 
-/* Contacts – над Selected Works, по левому краю
-	   (при условии, что в index.html блок .social стоит в разметке над заголовком Selected) */
-	.social {
-		position: static;
-		text-align: right;
-		margin: 75px 0 4px;
-	}
-
 /* Archive page content */
 /* Общий контейнер контента секции (Archive, Contacts и др.) */
 .section-content {

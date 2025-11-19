@@ -25,6 +25,7 @@
 	font-weight: 900;
 	margin-bottom: -30px;
 }
+
 .index-title h2 {
 	font-size: 40px; /* larger for index page only - change as needed */
 }
@@ -86,12 +87,10 @@ display: block;        /* grid сам управляет шириной ячей
 	display: inline-block;
 }
 
-
 /* Псевдо-hover для тач-устройств: тот же эффект, что и :hover */
 .titles.touch-hover > a > .name_block {
 	display: inline-block;
 }
-
 
 /* Опционально: можно немного ослабить обычный hover на тач-устройствах,
    но большую часть работы будет делать JS */
@@ -118,7 +117,6 @@ display: block;        /* grid сам управляет шириной ячей
 		box-sizing: border-box;
 	}
 
-
 	/* Заголовок и подзаголовок во всю ширину с отступами */
 
 	.index-title h1 {
@@ -137,8 +135,6 @@ display: block;        /* grid сам управляет шириной ячей
 		line-height: 1.2;
 		margin: 0 0 20px 0;
 	}
-
-	
 
 	/* Галерея на мобиле – один столбец */
 	.gallery {
