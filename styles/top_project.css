@@ -12,7 +12,7 @@ body {
 	position: absolute;
 	text-align: center;
 	left: 1028px;
-	background-color:#737373
+	background-color:#373737
 }
 
 
@@ -27,7 +27,7 @@ body {
 	position: absolute;
 	left: 1084px;
 	text-align: center;
-	background-color:#737373
+	background-color:#373737
 }
 
 .right_blank:hover {
@@ -64,9 +64,8 @@ p.img {
 .idTop:hover {
 	opacity: 1;
 }
-
 /* ===========================
-   Новый шаблон проектов
+   Новый шаблон страниц проекта
    =========================== */
 
 .project-page {
@@ -83,33 +82,16 @@ p.img {
     margin-bottom: 24px;
 }
 
-.project-header-titles {
+.project-titles {
     max-width: 70%;
 }
 
-.project-title {
+.project-titles h1 {
     margin: 0 0 4px 0;
-    font-size: 32px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
 }
 
-.project-subtitle {
+.project-titles h2 {
     margin: 0;
-    font-size: 16px;
-    font-weight: 400;
-    color: #737373;
-}
-
-.project-nav {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.project-nav-arrow {
-    text-decoration: none;
-    font-size: 20px;
 }
 
 /* Hero-картинка */
@@ -118,97 +100,116 @@ p.img {
     margin-bottom: 40px;
 }
 
-.project-hero-image {
+.project-hero-img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-/* Meta-блок (Team / Role / Location / Year) */
+/* Meta-блок: две колонки слева/справа */
 
 .project-meta {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 8px 40px; /* вертикальный / горизонтальный зазор */
+    gap: 8px 40px;
     margin-bottom: 40px;
-    font-size: 16px;
-    line-height: 1.5;
 }
 
-.project-meta-col {
+.meta-left,
+.meta-right {
     display: flex;
     flex-direction: column;
 }
 
-.project-meta-col--right {
-    margin-left: auto;      /* при переносе уходит вправо */
+.meta-left h3,
+.meta-right h3 {
+    margin: 0;
+}
+
+.meta-right {
+    margin-left: auto;
     text-align: right;
     align-items: flex-end;
 }
 
-.project-meta-item {
-    margin: 0;
-}
-
-/* Контентные секции */
+/* Общие секции проекта */
 
 .project-section {
     margin-bottom: 60px;
 }
 
-.project-section-title {
+/* Текстовый блок внутри секции */
+
+.text-block h3 {
     margin: 0 0 12px 0;
-    font-size: 18px;
-    font-weight: 500;
 }
 
-.project-text {
+.text-block p {
     margin: 0 0 10px 0;
-    font-size: 16px;
-    line-height: 1.6;
 }
 
-/* Общий каркас для сплит-секций (2 колонки) */
+/* Компоновка split: текст + картинка / картинка + картинка */
 
-.project-section-body {
+.section-body {
     display: flex;
     gap: 30px;
     align-items: flex-start;
 }
 
-.project-section-text {
-    flex: 0 0 34%;   /* примерно треть */
+.text-block {
+    flex: 0 0 34%;   /* примерно треть ширины */
 }
 
-.project-section-image {
-    flex: 1 1 0;
-}
-
-.project-section-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-/* Вариант: картинка + картинка */
-
-.project-section--image-image .project-section-image {
-    flex: 1 1 0;     /* две равные колонки */
-}
-
-/* Полноширинная картинка внутри страницы */
-
-.project-section--full .project-section-image--full {
+.image-block {
     margin: 0;
 }
 
-.project-section--full .project-section-image--full img {
+.image-block img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
+/* Полноширинная картинка */
+.project-section.full .image-block {
+    flex: 1 1 100%;
+}
+
+/* Две картинки рядом в строку */
+.project-section.split.images-row .section-body {
+    display: flex;
+    gap: var(--tile-gap);          /* твоя переменная gap */
+}
+
+/* Ширину зададим из JS, поэтому flex фиксируем */
+.project-section.split.images-row .image-block {
+    flex: 0 0 auto;
+}
+
+.project-section.split.images-row .image-block img {
+    display: block;
+}
+
+.project-section.split:not(.images-row) .image-block {
+    flex: 1 1 auto;
+}
+
+.project-section.split:not(.images-row) .image-block img {
+    width: 100%;
+}
+
+/* Мобилка — просто стак картинок друг под другом */
+@media (max-width: 768px) {
+    .project-section.split.images-row .section-body {
+        flex-direction: column;
+    }
+
+    .project-section.split.images-row .image-block img {
+        width: 100%;
+        height: auto;
+    }
+}
 /* ===========================
    Адаптация под мобильные
    =========================== */
@@ -221,33 +222,36 @@ p.img {
         gap: 8px;
     }
 
-    .project-header-titles {
+    .project-titles {
         max-width: 100%;
-    }
-
-    .project-title {
-        font-size: 26px;
     }
 
     .project-meta {
         gap: 4px 0;
     }
 
-    /* Две колонки превращаются в вертикальный стек */
-
-    .project-section-body {
+    .section-body {
         flex-direction: column;
     }
 
-    .project-section-text,
-    .project-section-image {
+    .text-block,
+    .image-block {
         flex: 1 1 auto;
     }
 
-    /* Для split-блока: сначала картинка, потом текст */
+   
+    .project-section.split.images-row .section-body {
+        flex-direction: column;
+        gap: var(--tile-gap);      /* на мобиле тоже можно использовать ту же переменную */
+    }
 
-    .project-section--split .project-section-image {
-        order: -1;
+    .project-section.split.images-row .image-block {
+        height: auto;
+    }
+
+    .project-section.split.images-row .image-block img {
+        width: 100%;
+        height: auto;
     }
 
     .project-section {

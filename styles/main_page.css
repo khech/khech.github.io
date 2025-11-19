@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-:root {
-	--tile-gap: 30px;
-}
-
 #common_body {
 	padding-left: var(--tile-gap);
 	padding-right: var(--tile-gap);

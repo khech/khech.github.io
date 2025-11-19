@@ -7,6 +7,10 @@ html, body {
     padding: 0;
 }
 
+:root {
+	--tile-gap: 30px;
+}
+
 #common_body {
 	max-width: 1256px;
 	margin: 30px auto 100px auto;
@@ -40,8 +44,6 @@ margin:auto;
 text-align: center;
 }
 
-
-
 h1 {
 	font-family: "Roboto";
 	font-size: 46px;
@@ -52,7 +54,7 @@ h1 {
 	margin-bottom: -10px;
 }
 h2 {
-	font-family: Roboto;
+	font-family: "Roboto";
 	color: #373737;
 	font-size: 28px;
 	margin-right: 28px;
@@ -60,21 +62,21 @@ h2 {
 	margin-bottom: 30px;
 }
 h3 {
-	font-family: Roboto;
+	font-family: "Roboto";
 	font-size: 28px;
 	font-weight: 400;
 	color: #373737;
 }
 
 h4 {
-	font-family: Roboto;
+	font-family: "Roboto";
 	font-size: 18px;
 	font-weight: 300;
 	color: #373737;
 }
 
 h5 {
-	font-family: Roboto;
+	font-family: "Roboto";
 	font-size: 18px;
 	margin-right: 28px;
 	color: #373737;
@@ -84,7 +86,7 @@ h5 {
 }
 
 h6 {
-	font-family: Roboto;
+	font-family: "Roboto";
 	color: #373737;
 	font-size: 18px;
 	margin-right: 28px;

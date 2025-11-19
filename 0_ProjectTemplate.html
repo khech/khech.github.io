@@ -1,164 +1,177 @@
 <!doctype html>
 <html lang="en">
 <head>
-  
-    <link rel="shortcut icon" href="images/markup/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
 
-    <!-- CANONICAL URL --> 
-    <link rel="canonical" href="https://khech.com/template.html">
+    <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+    <title>PROJECT_TITLE — PROJECT_SUBTITLE</title>
 
-    <!-- OPEN GRAPH -->
-    <!-- [OG_TITLE] название проекта -->
-    <meta property="og:title" content="Template Template">
-    <!-- [OG_DESCRIPTION] краткое описание -->
-    <meta property="og:description" content=">
-    <!-- [OG_IMAGE] картинка превью -->
-    <meta property="og:image" content="images/content/project/preview.jpg">
-    <!-- [OG_URL] ссылка на страницу -->
-    <meta property="og:url" content="https://khech.com/PROJECT_NAME.html">
+    <link rel="shortcut icon" href="images/markup/favicon.ico" type="image/x-icon">
 
-    <!-- === TWITTER CARD === -->
+    <!-- Канонический адрес страницы -->
+    <link rel="canonical" href="https://khech.com/PROJECT_SLUG.html">
+
+    <!-- Метаданные для превью -->
+    <meta property="og:title" content="PROJECT_TITLE">
+    <meta property="og:description" content="PROJECT_SUBTITLE">
+    <meta property="og:image" content="images/content/PROJECT_SLUG/cover.jpg">
+    <meta property="og:url" content="https://khech.com/PROJECT_SLUG.html">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- [TWITTER_TITLE] -->
-    <meta name="twitter:title" content="PROJECT TITLE">
-    <!-- [TWITTER_DESCRIPTION] -->
-    <meta name="twitter:description" content="PROJECT SHORT DESCRIPTION">
-    <!-- [TWITTER_IMAGE] -->
-    <meta name="twitter:image" content="images/content/project/preview.jpg">
 
-    <!-- === TAB TITLE === -->
-    <!-- [PAGE_TITLE] заголовок вкладки -->
-    <title>PROJECT TITLE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Fonts -->
-    <link href="styles/top_project.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
     <link href="styles/common.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="top_project.css">
-
+    <link href="styles/top_project.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+
 <div id="common_body">
 
-    
+    <!-- ССЫЛКА НАЗАД НА ГЛАВНУЮ -->
+    <a href="index.html" class="page-exit-link">Main</a>
 
-    <header class="project-header">
-
-        <div class="project-header-titles">
-            <h1 class="project-title">Name Name</h1>
-            <h2 class="project-subtitle">Subname Subname</h2>
+    <!-- ШАПКА ПРОЕКТА -->
+    <div class="project-header">
+        <div class="project-titles">
+            <h1>PROJECT_TITLE</h1>
+            <h2>PROJECT_SUBTITLE</h2>
         </div>
+    </div>
 
-        <nav class="project-nav">
+    <div class="project-page">
 
-            <!-- [NAV_LEFT] ссылка на предыдущий проект -->
-            <a href="PREVIOUS_PROJECT.html">
-                <div class="left_blank" style="opacity: 0.3">
-                    <img src="images/markup/arrow_L.png" alt="" width="32" height="32" align="middle"/>
-                </div>
-            </a>
-
-            <!-- [NAV_RIGHT] ссылка на следующий проект -->
-            <a href="NEXT_PROJECT.html">
-                <div class="right_blank">
-                    <img src="images/markup/arrow_R.png" alt="" width="32" height="32" align="middle"/>
-                </div>
-            </a>
-
-            <!-- [NAV_CLOSE] ссылка на главную -->
-            <a href="/" class="page-exit-link">Main</a>
-
-        </nav>
-
-    </header>
-
-    <main class="project-page">
-
-        <!-- HERO-КАРТИНКА -->
+        <!-- HERO-КАРТИНКА (обложка) -->
         <section class="project-hero">
             <img src="images/markup/Test_Pic_1.jpg"
-                 alt="Test image"
-                 class="project-hero-image">
+                 alt="PROJECT_TITLE main image"
+                 class="project-hero-img">
         </section>
 
-        <!-- META-БЛОК: TEAM / ROLE / LOCATION / YEAR -->
+        <!-- META — ДВЕ КОЛОНКИ, СЛЕВА/СПРАВА -->
         <section class="project-meta">
-            <div class="project-meta-col project-meta-col--left">
-                <p class="project-meta-item">Team: Khech Group</p>
-                <p class="project-meta-item">Role: Senior Architect</p>
+            <div class="meta-left">
+                <h3>Meta left line 1</h3>
+                <h3>Meta left line 2</h3>
             </div>
 
-            <div class="project-meta-col project-meta-col--right">
-                <p class="project-meta-item">Tbilisi, Georgia</p>
-                <p class="project-meta-item">2099</p>
+            <div class="meta-right">
+                <h3>Meta right line 1</h3>
+                <h3>Meta right line 2</h3>
             </div>
         </section>
 
-       <!-- БЛОК: PUBLIC SPACE (ТЕКСТ + КАРТИНКА) -->
-        <section class="project-section project-section--split">
-            <div class="project-section-body">
-                <div class="project-section-text">
-                    <h3 class="project-section-title">Public space</h3>
-                    <p class="project-text">
-                        The public spaces are designed as a sequence of open terraces
-                        and semi-private courtyards. They connect the buildings with
-                        the landscape and create comfortable routes for residents.
+        <!-- ТЕКСТ + КАРТИНКА -->
+        <section class="project-section split">
+            <div class="section-body">
+                <div class="text-block">
+                    <h3>Section title</h3>
+                    <p>
+                        Section text paragraph 1. Replace this text with your project
+                        description. It can be one or several lines.
                     </p>
-                    <p class="project-text">
-                        Each level offers different views and scenarios of interaction
-                        with the city and the hills, forming a gradual transition from
-                        public to private.
+                    <p>
+                        Section text paragraph 2. Add more details about the concept,
+                        context or process.
                     </p>
                 </div>
 
-                <figure class="project-section-image">
+                <figure class="image-block">
                     <img src="images/markup/Test_Pic_1.jpg"
-                         alt="Test image">
+                         alt="PROJECT_TITLE image 01">
+                </figure>
+            </div>
+        </section>
+
+        <!-- КАРТИНКА + КАРТИНКА -->
+        <section class="project-section split images-row">
+            <div class="section-body">
+                <figure class="image-block">
+                    <img src="images/markup/Test_Pic_1.jpg" alt="">
+                </figure>
+                <figure class="image-block">
+                    <img src="images/markup/Test_Pic_2.jpg" alt="">
+                </figure>
+            </div>
+        </section>
+
+        <section class="project-section split images-row">
+            <div class="section-body">
+                <figure class="image-block">
+                    <img src="images/markup/Test_Pic_2.jpg" alt="">
+                </figure>
+                <figure class="image-block">
+                    <img src="images/markup/Test_Pic_1.jpg" alt="">
                 </figure>
             </div>
         </section>
 
 
-        <!-- БЛОК: КАРТИНКА + КАРТИНКА -->
-        <section class="project-section project-section--split project-section--image-image">
-            <div class="project-section-body">
-                <figure class="project-section-image">
-                    <img src="images/markup/Test_Pic_1.jpg"
-                         alt="Test image">
-                </figure>
-                <figure class="project-section-image">
-                    <img src="images/markup/Test_Pic_2.jpg"
-                         alt="Test Image">
-                </figure>
-            </div>
-        </section>
 
-        <!-- ПОЛНОШИРИННАЯ КАРТИНКА В СЕРЕДИНЕ СТРАНИЦЫ -->
-        <section class="project-section project-section--full">
-            <figure class="project-section-image project-section-image--full">
+    
+        <!-- КАРТИНКА ВО ВСЮ ШИРИНУ В СЕРЕДИНЕ СТРАНИЦЫ -->
+        <section class="project-section full">
+            <figure class="image-block">
                 <img src="images/markup/Test_Pic_1.jpg"
-                     alt="Test Image">
+                     alt="PROJECT_TITLE full width image">
             </figure>
         </section>
 
-    </main>
-        
-    <div class="idTop">
-        <img src="images/markup/arrow_top.png" width="64" height="64" alt="up"/>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $('.idTop').click(function(){
-                $('html, body').animate({scrollTop:0}, 'slow');
-            });
-        });
-    </script>
+</div>
+
+<script>
+function layoutImagePairs() {
+  const rows = document.querySelectorAll(
+    '.project-section.split.images-row .section-body'
+  );
+
+  rows.forEach(row => {
+    const imgs = row.querySelectorAll('.image-block img');
+    if (imgs.length !== 2) return;
+
+    const [img1, img2] = imgs;
+
+    // Мобилка: сбрасываем всё и выходим
+    if (window.innerWidth <= 768) {
+      imgs.forEach(img => {
+        img.style.width = '';
+        img.style.height = '';
+      });
+      return;
+    }
+
+    // Ждём, пока картинки реально загрузятся
+    if (!img1.naturalWidth || !img2.naturalWidth) {
+      img1.addEventListener('load', layoutImagePairs, { once: true });
+      img2.addEventListener('load', layoutImagePairs, { once: true });
+      return;
+    }
+
+    const styles = getComputedStyle(row);
+    const gap = parseFloat(styles.columnGap || styles.gap || 0);
+    const W = row.clientWidth;
+
+    const k1 = img1.naturalWidth / img1.naturalHeight;
+    const k2 = img2.naturalWidth / img2.naturalHeight;
+
+    // Высота H, при которой обе картинки:
+    // 1) имеют одинаковую высоту
+    // 2) плюс gap занимают всю ширину контейнера
+    const H = (W - gap) / (k1 + k2);
+    const w1 = H * k1;
+    const w2 = H * k2;
+
+    img1.style.height = img2.style.height = H + 'px';
+    img1.style.width  = w1 + 'px';
+    img2.style.width  = w2 + 'px';
+  });
+}
+
+window.addEventListener('load', layoutImagePairs);
+window.addEventListener('resize', layoutImagePairs);
+</script>
 
 </body>
 </html>
