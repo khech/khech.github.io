@@ -98,7 +98,8 @@ display: block;        /* grid сам управляет шириной ячей
 
 	.social {
         position: static;
-        margin-top: 8px; /* или 10–15px, как тебе нравится */
+        margin-top: 8px;
+		margin-bottom: 50px;
         text-align: right;
     }
 	
