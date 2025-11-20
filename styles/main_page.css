@@ -1,44 +1,20 @@
 @charset "utf-8";
 
-#common_body {
-	padding-left: var(--tile-gap);
-	padding-right: var(--tile-gap);
-}
-
-.nav-link-main {
-    color: #373737;
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.social {
-	position: absolute;
-    right: 0px;
-    top: 0;
-    text-align: right;
-}
-
 /* Index-only title sizing: targets only the index page header */
 .index-title h1 {
 	font-family: "Work Sans", "Roboto";
 	font-size: 65px; /* larger for index page only - change as needed */
 	font-weight: 900;
-	margin-bottom: -30px;
 }
 
 .index-title h2 {
 	font-size: 40px; /* larger for index page only - change as needed */
 }
 
-/* Index-only project hat wrapper — target header area on index page only */
-#project_hat.index-hat {
-	box-sizing: border-box; /* harmless default so selector is non-empty */
-}
-
 /* Index-only projects section heading */
 .projects-heading {
 	font-weight: 600;
-	margin-top: 150px;
+	margin-top: 70px;
 	margin-bottom: 10px;
 }
 
@@ -92,9 +68,6 @@ display: block;        /* grid сам управляет шириной ячей
 	display: inline-block;
 }
 
-/* Опционально: можно немного ослабить обычный hover на тач-устройствах,
-   но большую часть работы будет делать JS */
-
 
 /* Archive link section at bottom of index */
 .archive-link-section {
@@ -107,15 +80,6 @@ display: block;        /* grid сам управляет шириной ячей
 	:root {
 	--tile-gap: 15px;
 }
-
-	#common_body {
-		width: 100%;  
-		max-width: 100%;
-		margin: 0;
-		padding-left: var(--tile-gap);
-		padding-right: var(--tile-gap);
-		box-sizing: border-box;
-	}
 
 	/* Заголовок и подзаголовок во всю ширину с отступами */
 

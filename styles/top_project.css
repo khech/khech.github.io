@@ -40,30 +40,6 @@ body {
 }
 
 
-p.img {
-	margin-left: 28px;
-}
-.img {
-	margin-left: 28px;
-	margin-top: 28px;
-}
-
-.idTop {
-	position: absolute;
-	z-index: 9999;
-	height: 64px;
-	width: 64px;
-	opacity: .6;
-	color: transparent;
-	left: 596px;
-	top: px;
-	margin-top: 30px;
-	padding-bottom: 30px;
-}
-
-.idTop:hover {
-	opacity: 1;
-}
 /* ===========================
    Новый шаблон страниц проекта
    =========================== */
@@ -71,29 +47,6 @@ p.img {
 .project-page {
     padding-top: 10px;
 }
-
-/* Шапка проекта
-
-.project-header {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;            
-    margin-bottom: 40px;
-}
-
-.project-titles {
-    max-width: 70%;
-}
-
-.project-titles h1 {
-    margin: 0 0 4px 0;
-}
-
-.project-titles h2 {
-    margin: 0;
-}
-
-*/
 
 /* Hero-картинка */
 
@@ -204,30 +157,8 @@ p.img {
 
 @media (max-width: 768px) {
 
-    :root {
-	--tile-gap: 15px;
-}
 
-	#common_body {
-		width: 100%;  
-		max-width: 100%;
-		margin: 30px 20px 0 0;
-		padding-left: var(--tile-gap);
-		padding-right: var(--tile-gap);
-		box-sizing: border-box;
-	}
-
-    /* 
-    .project-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-
-   .project-titles {
-        max-width: 100%;
-    }
-
-}   */
+	
 
     .project-section.split.images-row .section-body {
         flex-direction: column;
