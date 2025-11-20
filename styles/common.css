@@ -215,15 +215,20 @@ h6 {
         margin-top: 40px;
         margin-bottom: 30px;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch; /* шапка на всю ширину */
         gap: 8px;
     }
 
-    .page-header-title {
-        max-width: 100%;
+    /* Навигация ДОЛЖНА быть сверху */
+    .page-header-nav {
+        order: 0;              /* всегда первая */
+        align-self: flex-end;  /* прижать кнопки вправо */
+        margin-left: 0;
     }
 
-    .page-header-nav {
-        margin-left: auto; /* блок ссылок прижат вправо на мобильных */
+    /* Заголовки — под навигацией */
+    .page-header-title {
+        order: 1;              /* всегда вторая */
+        max-width: 100%;
     }
 }
