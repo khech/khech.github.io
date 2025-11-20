@@ -72,14 +72,13 @@ p.img {
     padding-top: 10px;
 }
 
-/* Шапка проекта */
+/* Шапка проекта
 
 .project-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 24px;
+    justify-content: space-between; 
+    align-items: center;            
+    margin-bottom: 40px;
 }
 
 .project-titles {
@@ -93,6 +92,8 @@ p.img {
 .project-titles h2 {
     margin: 0;
 }
+
+*/
 
 /* Hero-картинка */
 
@@ -199,8 +200,35 @@ p.img {
     width: 100%;
 }
 
-/* Мобилка — просто стак картинок друг под другом */
+
+
 @media (max-width: 768px) {
+
+    :root {
+	--tile-gap: 15px;
+}
+
+	#common_body {
+		width: 100%;  
+		max-width: 100%;
+		margin: 30px 20px 0 0;
+		padding-left: var(--tile-gap);
+		padding-right: var(--tile-gap);
+		box-sizing: border-box;
+	}
+
+    /* 
+    .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+   .project-titles {
+        max-width: 100%;
+    }
+
+}   */
+
     .project-section.split.images-row .section-body {
         flex-direction: column;
     }
@@ -208,22 +236,6 @@ p.img {
     .project-section.split.images-row .image-block img {
         width: 100%;
         height: auto;
-    }
-}
-/* ===========================
-   Адаптация под мобильные
-   =========================== */
-
-@media (max-width: 768px) {
-
-    .project-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .project-titles {
-        max-width: 100%;
     }
 
     .project-meta {

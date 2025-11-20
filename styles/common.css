@@ -94,6 +94,41 @@ h6 {
 	margin-bottom: -30px;
 }
 
+/* === Unified page header (Contacts, Projects, etc.) === */
+
+.page-header {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Левая часть — заголовки */
+.page-header-title {
+    max-width: 70%;
+}
+
+/* Правая часть — навигационные ссылки */
+.page-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* запас под будущие кнопки */
+}
+
+/* Убираем лишние отступы у h3-обёртки */
+.page-header-nav h3 {
+    margin: 0;
+}
+
+/* Единый стиль навигационных слов в шапке (Main, Contacts, Menu и т.п.) */
+.nav-link-main {
+    color: #373737;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 /* Archive page content */
 /* Общий контейнер контента секции (Archive, Contacts и др.) */
 .section-content {
@@ -107,19 +142,14 @@ h6 {
     text-decoration: none;
 }
 
-
 .page-exit-link {
-    position: absolute;
-    top: 20px;
-    right: 0px;
+    display: block;
+    text-align: right;
+    margin-bottom: 24px;
     text-decoration: underline;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
     color: inherit;
     cursor: pointer;
 }
-
 
 /* Универсальная строка списка */
 .list-row {
@@ -176,4 +206,24 @@ h6 {
 .profile-photo {
     width: 100%;
     margin-bottom: 40px;
+}
+
+
+/* Адаптив для шапки */
+@media (max-width: 768px) {
+    .page-header {
+        margin-top: 40px;
+        margin-bottom: 30px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .page-header-title {
+        max-width: 100%;
+    }
+
+    .page-header-nav {
+        margin-left: auto; /* блок ссылок прижат вправо на мобильных */
+    }
 }
