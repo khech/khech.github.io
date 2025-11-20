@@ -96,6 +96,19 @@ h6 {
 
 /* === Unified page header (Contacts, Projects, etc.) === */
 
+.index-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+/* Кнопка Contacts справа */
+.index-header .page-header-nav {
+    margin-left: auto;
+}
+
 .page-header {
     width: 100%;
     margin-top: 100px;
@@ -230,5 +243,26 @@ h6 {
     .page-header-title {
         order: 1;              /* всегда вторая */
         max-width: 100%;
+    }
+
+	/* Мобильная шапка — вертикальная */
+    .index-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    /* Навигация сверху, справа */
+    .index-header .page-header-nav {
+        order: 0;
+        align-self: flex-end;
+        margin-left: 0;
+    }
+
+    /* Заголовки под навигацией */
+    .index-header .index-title {
+        order: 1;
     }
 }
