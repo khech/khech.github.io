@@ -3,19 +3,19 @@
 /* Index-only title sizing: targets only the index page header */
 .index-title h1 {
 	font-family: "Work Sans", "Roboto";
-	font-size: 65px; /* larger for index page only - change as needed */
+	font-size: 75px; /* larger for index page only - change as needed */
 	font-weight: 900;
 }
 
 .index-title h2 {
-	font-size: 40px; /* larger for index page only - change as needed */
+	font-size: 45px; /* larger for index page only - change as needed */
+	margin-top: 5px;
 }
 
 /* Index-only projects section heading */
 .projects-heading {
 	font-weight: 600;
 	margin-top: 70px;
-	margin-bottom: 10px;
 }
 
 .gallery {
@@ -23,7 +23,7 @@
 	grid-template-columns: repeat(2, minmax(0, 1fr)); /* две колонки */
 	column-gap: var(--tile-gap);
 	row-gap: var(--tile-gap);
-	margin-top: 30px;
+	margin-top: var(--tile-gap);
 }
 
 .titles {
@@ -77,17 +77,13 @@ display: block;        /* grid сам управляет шириной ячей
 
 @media (max-width: 768px) {
 
-	:root {
-	--tile-gap: 15px;
-}
 
 	/* Заголовок и подзаголовок во всю ширину с отступами */
 
 	.index-title h1 {
 		/* делаем агрессивнее: больше vw и выше максимум */
 		font-family: "Work Sans", "Roboto";
-		white-space: nowrap; 
-		font-size: clamp(28px, 14vw, 45px);
+		font-size: 46px;
 		line-height: 1.05;
 		margin: 0 0 4px 0;
 	}

@@ -8,44 +8,54 @@ html, body {
 }
 
 h1 {
-	font-size: 46px;
+	font-size: 45px;
 	font-weight: 600;
 	margin: 0px;
+	line-height: 1;
+	white-space: nowrap;
+	color: #ff00f2;
 }
-
 h2 {
-	font-size: 28px;
+	font-size: 27px;
 	font-weight: 300;
 	margin: 0px;
+	margin-top: 5px;
+	line-height: 1.1;
+	white-space: nowrap; 
+	color: #1100ff;
 }
 
 h3 {
-	font-size: 28px;
+	font-size: 27px;
 	font-weight: 400;
 	margin: 0px;
+	line-height: 1.2;
+	white-space: nowrap; 
+	color: #ff0000;
 }
 
 h4 {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 300;
 	margin: 0px;
+	color: #09ff00;
 }
 
 h5 {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 900;
 	margin: 0px;
 }
 
 h6 {
-	font-size: 18px;
+	font-size: 10px;
 	font-weight: 300;
 	margin: 0px;
 }
 
 a {
-    color: inherit;
     text-decoration: underline;
+	color: inherit;
 }
 
 :root {
@@ -89,9 +99,7 @@ a {
 
 /* Единый стиль навигационных слов в шапке (Main, Contacts, Menu и т.п.) */
 .nav-link-main {
-    color: #373737;
     font-weight: 600;
-    text-decoration: underline;
 }
 
 /* Общий контейнер контента секции (Archive, Contacts и др.) */
@@ -178,7 +186,23 @@ a {
 
 	:root {
 	--tile-gap: 15px;
-}
+	}
+
+	h1 {
+		font-size: 45px;
+	}
+
+	h2 {
+		font-size: 27px;
+	}
+
+	h3 {
+		font-size: 16px;
+	}
+
+	h4 {
+		font-size: 16px;
+	}
 
 	#common_body {
 		width: 100%;  
