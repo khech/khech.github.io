@@ -176,6 +176,24 @@ a {
     margin-bottom: 40px;
 }
 
+.page-footer {
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between; /* ЛОГО СЛЕВА — ССЫЛКА СПРАВА */
+    align-items: baseline;
+}
+
+/* Логотип слева */
+.page-footer-brand h3 {
+    margin: 0;
+}
+
+/* Навигация справа */
+.page-footer-nav h3 {
+    margin: 0;
+}
+
 
 /* Адаптив для шапки */
 @media (max-width: 768px) {
@@ -228,6 +246,10 @@ a {
     .page-header-title {
         order: 1;              /* всегда вторая */
         max-width: 100%;
+    }
+
+    .page-footer {
+        margin-top: 60px;
     }
 
 }
