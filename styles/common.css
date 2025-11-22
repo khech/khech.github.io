@@ -7,6 +7,16 @@ html, body {
     padding: 0;
 }
 
+.logo-font {
+    font-family: "Work Sans", "Roboto";
+    font-size: 45px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
 h1 {
 	font-size: 45px;
 	font-weight: 600;
@@ -14,6 +24,7 @@ h1 {
 	line-height: 1;
 	white-space: nowrap;
 }
+
 h2 {
 	font-size: 27px;
 	font-weight: 300;
@@ -51,6 +62,8 @@ h6 {
 
 a {
     text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 3px;
 	color: inherit;
 }
 
@@ -218,6 +231,11 @@ a {
 		font-size: 16px;
 	}
 
+   a {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
 	#common_body {
 		width: 100%;  
 		max-width: 100%;
@@ -226,6 +244,10 @@ a {
 		padding-right: var(--tile-gap);
 		box-sizing: border-box;
 	}
+
+    .logo-font {
+    font-size: 27px;
+    }
 
     .page-header {
         margin-top: 0px;

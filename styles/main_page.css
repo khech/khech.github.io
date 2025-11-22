@@ -1,18 +1,14 @@
 @charset "utf-8";
 
-/* Index-only title sizing: targets only the index page header */
 .index-title h1 {
-	font-family: "Work Sans", "Roboto";
-	font-size: 75px; /* larger for index page only - change as needed */
-	font-weight: 900;
+	font-size: 75px;
 }
 
 .index-title h2 {
-	font-size: 45px; /* larger for index page only - change as needed */
+	font-size: 45px;
 	margin-top: 5px;
 }
 
-/* Index-only projects section heading */
 .projects-heading {
 	font-weight: 600;
 	margin-top: 70px;
@@ -20,19 +16,17 @@
 
 .gallery {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr)); /* две колонки */
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	column-gap: var(--tile-gap);
 	row-gap: var(--tile-gap);
 	margin-top: var(--tile-gap);
 }
 
 .titles {
-display: block;        /* grid сам управляет шириной ячейки */
-	margin-top: 0;         /* отступы теперь даёт row-gap */
+	display: block;
+	margin-top: 0;
 	position: relative;
 }
-
-/* width: calc((100% - var(--tile-gap)) / 2); */
 
 .titles img.tiles {
 	width: 100%;
@@ -63,13 +57,10 @@ display: block;        /* grid сам управляет шириной ячей
 	display: inline-block;
 }
 
-/* Псевдо-hover для тач-устройств: тот же эффект, что и :hover */
 .titles.touch-hover > a > .name_block {
 	display: inline-block;
 }
 
-
-/* Archive link section at bottom of index */
 .archive-link-section {
 	margin-top: 50px;
 	margin-bottom: 30px;
@@ -77,20 +68,13 @@ display: block;        /* grid сам управляет шириной ячей
 
 @media (max-width: 768px) {
 
-
-	/* Заголовок и подзаголовок во всю ширину с отступами */
-
 	.index-title h1 {
-		/* делаем агрессивнее: больше vw и выше максимум */
-		font-family: "Work Sans", "Roboto";
 		font-size: 46px;
 		line-height: 1.05;
 		margin: 0 0 4px 0;
 	}
 
 	.index-title h2 {
-		/* пропорционально меньше, примерно вдвое */
-		white-space: nowrap; 
 		font-size: clamp(18px, 6vw, 30px);
 		line-height: 1.2;
 		margin: 0 0 20px 0;
@@ -103,11 +87,10 @@ display: block;        /* grid сам управляет шириной ячей
         text-align: right;
     }
 	
-	/* Галерея на мобиле – один столбец */
 	.gallery {
 		grid-template-columns: 1fr;
-		column-gap: 0;                 /* горизонтальных разрывов больше нет */
-		row-gap: var(--tile-gap);      /* вертикальное расстояние остаётся 30px */
+		column-gap: 0;
+		row-gap: var(--tile-gap);
 	}
 
 	.titles {
