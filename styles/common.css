@@ -66,6 +66,7 @@ a {
   text-underline-offset: 4px;
   text-decoration-thickness: 3px;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {

@@ -15,6 +15,7 @@
 .filter-line .filter-btn {
   cursor: pointer;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .filter-line .filter-btn.active {
