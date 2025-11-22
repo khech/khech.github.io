@@ -9,6 +9,16 @@
   margin-top: 5px;
 }
 
+.filter-line .filter-btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.filter-line .filter-btn.active {
+  text-decoration: underline;
+  font-weight: 400;
+}
+
 .projects-heading {
   font-weight: 600;
   margin-top: 70px;
@@ -27,6 +37,7 @@
   margin-top: 0;
   position: relative;
 }
+
 .titles img.tiles {
   width: 100%;
   height: auto;
