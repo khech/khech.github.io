@@ -1,277 +1,275 @@
 @charset "utf-8";
 
-html, body {
-    font-family: Roboto, sans-serif;
-    color: #373737;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  font-family: Roboto, sans-serif;
+  color: #373737;
+  margin: 0;
+  padding: 0;
 }
 
 .logo-font {
-    font-family: "Work Sans", "Roboto";
-    font-size: 45px;
-    font-weight: 900;
-    line-height: 1;
-    margin: 0;
-    white-space: nowrap;
-    text-decoration: none;
+  font-family: "Work Sans", "Roboto";
+  font-size: 45px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
 h1 {
-	font-size: 45px;
-	font-weight: 600;
-	margin: 0px;
-	line-height: 1;
-	white-space: nowrap;
+  font-size: 45px;
+  font-weight: 600;
+  margin: 0px;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 h2 {
-	font-size: 27px;
-	font-weight: 300;
-	margin: 0px;
-	margin-top: 5px;
-	line-height: 1.1;
-	white-space: nowrap; 
+  font-size: 27px;
+  font-weight: 300;
+  margin: 0px;
+  margin-top: 5px;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 h3 {
-	font-size: 27px;
-	font-weight: 400;
-	margin: 0px;
-	line-height: 1.2;
+  font-size: 27px;
+  font-weight: 400;
+  margin: 0px;
+  line-height: 1.2;
 }
 
 h4 {
-	font-size: 27px;
-	font-weight: 400;
-	margin: 0px;
-	line-height: 1.2;
+  font-size: 27px;
+  font-weight: 400;
+  margin: 0px;
+  line-height: 1.2;
 }
 
 h5 {
-	font-size: 16px;
-	font-weight: 900;
-	margin: 0px;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 0px;
 }
 
 h6 {
-	font-size: 10px;
-	font-weight: 300;
-	margin: 0px;
+  font-size: 10px;
+  font-weight: 300;
+  margin: 0px;
 }
 
 a {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 3px;
-	color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 3px;
+  color: inherit;
 }
 
 :root {
-	--tile-gap: 30px;
+  --tile-gap: 30px;
 }
 
 #common_body {
-	max-width: 1256px;
-	margin: 50px auto 100px auto;
-	position: relative;
-	padding-left: var(--tile-gap);
-	padding-right: var(--tile-gap);
+  max-width: 1256px;
+  margin: 50px auto 100px auto;
+  position: relative;
+  padding-left: var(--tile-gap);
+  padding-right: var(--tile-gap);
 }
 
 /* === Unified page header (Contacts, Projects, etc.) === */
 .page-header {
-    width: 100%;
-    margin-top: 70px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /* Левая часть — заголовки */
 .page-header-title {
-    max-width: 70%;
+  max-width: 70%;
 }
 
 /* Правая часть — навигационные ссылки */
 .page-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* запас под будущие кнопки */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* запас под будущие кнопки */
 }
 
 /* Убираем лишние отступы у h3-обёртки */
 .page-header-nav h3 {
-    margin: 0;
+  margin: 0;
 }
 
 /* Единый стиль навигационных слов в шапке (Main, Contacts, Menu и т.п.) */
 .nav-link-main {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /* Общий контейнер контента секции (Archive, Contacts и др.) */
 .section-content {
-    margin-left: 0;
-    margin-top: 50px;
+  margin-left: 0;
+  margin-top: 50px;
 }
 
 /* Дополнительно можно оставить, если хочешь управлять ссылками внутри секций отдельно */
 .section-content a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 .page-exit-link {
-    display: block;
-    text-align: right;
-    margin-bottom: 24px;
-    text-decoration: underline;
-    color: inherit;
-    cursor: pointer;
+  display: block;
+  text-align: right;
+  margin-bottom: 24px;
+  text-decoration: underline;
+  color: inherit;
+  cursor: pointer;
 }
 
 /* Универсальная строка списка */
 .list-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 5px;
-    margin-bottom: 8px;
-    text-decoration: none;
-    color: inherit;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Основной текст строки (обычно h3) */
 .list-row .list-title {
-    margin: 0 !important;
-    line-height: inherit;
+  margin: 0 !important;
+  line-height: inherit;
 }
 
 /* Вторичный текст (тег, тип проекта и т.п.) */
 .list-tag {
-    font-size: 0.8em;
-    white-space: nowrap;
-    opacity: 0.7;
-    margin-top: 8px; /* только небольшая коррекция */
+  font-size: 0.8em;
+  white-space: nowrap;
+  opacity: 0.7;
+  margin-top: 8px; /* только небольшая коррекция */
 }
 
 /* Блок стилей страницы Contacts */
 /* Локально для этой страницы: ссылки как обычный текст, но с подчёркиванием */
 /* Ссылка, стилизованная как текст с подчёркиванием */
 .link-text {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Любой текст, по клику копирующийся в буфер */
 .copyable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Маленькая иконка в строке текста (копирование, стрелочка и т.п.) */
 .icon-inline {
-    height: 0.7em;
-    width: auto;
-    margin-left: 4px;
-    vertical-align: middle;
-    pointer-events: none;
+  height: 0.7em;
+  width: auto;
+  margin-left: 4px;
+  vertical-align: middle;
+  pointer-events: none;
 }
 
 /* Лёгкий визуальный отклик после копирования */
 .copyable.copied {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .profile-photo {
-    width: 100%;
-    margin-bottom: 40px;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .page-footer {
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
-    justify-content: space-between; /* ЛОГО СЛЕВА — ССЫЛКА СПРАВА */
-    align-items: baseline;
+  width: 100%;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between; /* ЛОГО СЛЕВА — ССЫЛКА СПРАВА */
+  align-items: baseline;
 }
 
 /* Логотип слева */
 .page-footer-brand h3 {
-    margin: 0;
+  margin: 0;
 }
 
 /* Навигация справа */
 .page-footer-nav h3 {
-    margin: 0;
+  margin: 0;
 }
-
 
 /* Адаптив для шапки */
 @media (max-width: 768px) {
+  :root {
+    --tile-gap: 15px;
+  }
 
-	:root {
-	--tile-gap: 15px;
-	}
+  h1 {
+    font-size: 45px;
+  }
 
-	h1 {
-		font-size: 45px;
-	}
+  h2 {
+    font-size: 27px;
+  }
 
-	h2 {
-		font-size: 27px;
-	}
+  h3 {
+    font-size: 27px;
+  }
 
-	h3 {
-		font-size: 27px;
-	}
+  h4 {
+    font-size: 16px;
+  }
 
-	h4 {
-		font-size: 16px;
-	}
-
-   a {
+  a {
     text-underline-offset: 3px;
     text-decoration-thickness: 2px;
-}
+  }
 
-	#common_body {
-		width: 100%;  
-		max-width: 100%;
-		margin: 30px 0px 50px 0;
-		padding-left: var(--tile-gap);
-		padding-right: var(--tile-gap);
-		box-sizing: border-box;
-	}
+  #common_body {
+    width: 100%;
+    max-width: 100%;
+    margin: 30px 0px 50px 0;
+    padding-left: var(--tile-gap);
+    padding-right: var(--tile-gap);
+    box-sizing: border-box;
+  }
 
-    .logo-font {
+  .logo-font {
     font-size: 27px;
-    }
+  }
 
-    .page-header {
-        margin-top: 0px;
-        margin-bottom: 30px;
-        flex-direction: column;
-        align-items: stretch; /* шапка на всю ширину */
-        gap: 30px;
-    }
+  .page-header {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: stretch; /* шапка на всю ширину */
+    gap: 30px;
+  }
 
-    /* Навигация ДОЛЖНА быть сверху */
-    .page-header-nav {
-        order: 0;              /* всегда первая */
-        align-self: flex-end;  /* прижать кнопки вправо */
-        margin-left: 0;
-    }
+  /* Навигация ДОЛЖНА быть сверху */
+  .page-header-nav {
+    order: 0; /* всегда первая */
+    align-self: flex-end; /* прижать кнопки вправо */
+    margin-left: 0;
+  }
 
-    /* Заголовки — под навигацией */
-    .page-header-title {
-        order: 1;              /* всегда вторая */
-        max-width: 100%;
-    }
+  /* Заголовки — под навигацией */
+  .page-header-title {
+    order: 1; /* всегда вторая */
+    max-width: 100%;
+  }
 
-    .page-footer {
-        margin-top: 60px;
-    }
-
+  .page-footer {
+    margin-top: 60px;
+  }
 }
