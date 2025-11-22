@@ -69,6 +69,10 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+a:active {
+  opacity: 0.6;
+}
+
 :root {
   --tile-gap: 30px;
 }
