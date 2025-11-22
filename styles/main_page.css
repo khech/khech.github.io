@@ -1,7 +1,10 @@
 @charset "utf-8";
 
 .index-title h1 {
+  font-family: "Work Sans", "Roboto";
   font-size: 75px;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .index-title h2 {
