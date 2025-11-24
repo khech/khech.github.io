@@ -8,7 +8,7 @@
 
   <meta name="author" content="Arseniy Khechinashvili" />
 
-  <meta property="og:site_name" content="Arseniy Khechinashvili" />
+  <meta property="og:site_name" content="Khech. Architecture, Design, Digital" />
   <meta property="og:title" content="PROJECT TITLE" />
   <meta property="og:description" content="PROJECT DESCRIPTION" />
   <meta property="og:image" content="IMG LINK" />
@@ -20,7 +20,12 @@
   <meta name="twitter:image" content="https://khech.com/PROJECT" />
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic&amp" rel="stylesheet" />
-  <link href="styles/common.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/styles/common.css" rel="stylesheet" type="text/css">
+  <link href="/styles/top_project.css" rel="stylesheet" type="text/css">
+
+  <!--Counter-->
+  <script data-goatcounter="https://khech.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <!--Script foor Google-->
   <script type="application/ld+json">
@@ -38,42 +43,30 @@
 }
   </script>
 
-  <title>PROJECT Khech. Architecture, Design</title>
+  <title>Khech. PROJECT NAME</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="styles/common.css" rel="stylesheet" type="text/css">
-  <link href="styles/top_project.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
   <div id="common_body">
-
-    <!-- ССЫЛКА НАЗАД НА ГЛАВНУЮ -->
-
-
     <header class="page-header">
-
-
       <div class="page-header-title">
         <h1>Project Title</h1>
         <h2>Sub Project Title</h2>
       </div>
-
       <nav class="page-header-nav">
         <h4>
-          <a href="index.html" class="nav-link-main">Main</a>
+          <a href="/index.html" class="nav-link-main">Main</a>
         </h4>
       </nav>
-
     </header>
 
     <div class="project-page">
 
       <!-- HERO-КАРТИНКА (обложка) -->
       <section class="project-hero">
-        <img src="images/markup/Test_Pic_1.jpg" alt="PROJECT_TITLE main image" class="project-hero-img">
+        <img src="/images/markup/Test_Pic_1.jpg" alt="PROJECT_TITLE main image" class="project-hero-img">
       </section>
 
       <!-- META — ДВЕ КОЛОНКИ, СЛЕВА/СПРАВА -->
@@ -105,7 +98,7 @@
           </div>
 
           <figure class="image-block">
-            <img src="images/markup/Test_Pic_1.jpg" alt="PROJECT_TITLE image 01">
+            <img src="/images/markup/Test_Pic_1.jpg" alt="PROJECT_TITLE image 01">
           </figure>
         </div>
       </section>
@@ -114,21 +107,10 @@
       <section class="project-section split images-row">
         <div class="section-body">
           <figure class="image-block">
-            <img src="images/markup/Test_Pic_1.jpg" alt="">
+            <img src="/images/markup/Test_Pic_1.jpg" alt="">
           </figure>
           <figure class="image-block">
-            <img src="images/markup/Test_Pic_2.jpg" alt="">
-          </figure>
-        </div>
-      </section>
-
-      <section class="project-section split images-row">
-        <div class="section-body">
-          <figure class="image-block">
-            <img src="images/markup/Test_Pic_2.jpg" alt="">
-          </figure>
-          <figure class="image-block">
-            <img src="images/markup/Test_Pic_1.jpg" alt="">
+            <img src="/images/markup/Test_Pic_2.jpg" alt="">
           </figure>
         </div>
       </section>
@@ -136,7 +118,7 @@
       <!-- КАРТИНКА ВО ВСЮ ШИРИНУ В СЕРЕДИНЕ СТРАНИЦЫ -->
       <section class="project-section full">
         <figure class="image-block">
-          <img src="images/markup/Test_Pic_1.jpg" alt="PROJECT_TITLE full width image">
+          <img src="/images/markup/Test_Pic_1.jpg" alt="PROJECT_TITLE full width image">
         </figure>
       </section>
 
@@ -150,66 +132,14 @@
 
       <nav class="page-footer-nav">
         <h4>
-          <a href="NEXT.html" class="nav-link-main">Next</a>
+          <a href="/projects/0-project-template.html" class="nav-link-main">Next</a>
         </h4>
       </nav>
     </footer>
 
   </div>
 
-  <script data-goatcounter="https://khech.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
-  <script>
-    function layoutImagePairs() {
-      const rows = document.querySelectorAll(
-        '.project-section.split.images-row .section-body'
-      );
-
-      rows.forEach(row => {
-        const imgs = row.querySelectorAll('.image-block img');
-        if (imgs.length !== 2) return;
-
-        const [img1, img2] = imgs;
-
-        // Мобилка: сбрасываем всё и выходим
-        if (window.innerWidth <= 768) {
-          imgs.forEach(img => {
-            img.style.width = '';
-            img.style.height = '';
-          });
-          return;
-        }
-
-        // Ждём, пока картинки реально загрузятся
-        if (!img1.naturalWidth || !img2.naturalWidth) {
-          img1.addEventListener('load', layoutImagePairs, { once: true });
-          img2.addEventListener('load', layoutImagePairs, { once: true });
-          return;
-        }
-
-        const styles = getComputedStyle(row);
-        const gap = parseFloat(styles.columnGap || styles.gap || 0);
-        const W = row.clientWidth;
-
-        const k1 = img1.naturalWidth / img1.naturalHeight;
-        const k2 = img2.naturalWidth / img2.naturalHeight;
-
-        // Высота H, при которой обе картинки:
-        // 1) имеют одинаковую высоту
-        // 2) плюс gap занимают всю ширину контейнера
-        const H = (W - gap) / (k1 + k2);
-        const w1 = H * k1;
-        const w2 = H * k2;
-
-        img1.style.height = img2.style.height = H + 'px';
-        img1.style.width = w1 + 'px';
-        img2.style.width = w2 + 'px';
-      });
-    }
-
-    window.addEventListener('load', layoutImagePairs);
-    window.addEventListener('resize', layoutImagePairs);
-  </script>
+  <script src="/scripts/common.js"></script>
 
 </body>
 
