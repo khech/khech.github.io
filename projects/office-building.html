@@ -38,39 +38,51 @@
     <!-- Counter -->
     <script data-goatcounter="https://khech.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
+    <!-- Structured data for Google -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arseniy Khechinashvili",
+    "alternateName": "Khech",
+    "url": "https://khech.com",
+    "jobTitle": "Architect, Designer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Khech Studio"
+    }
+  }
+  </script>
+
     <title>Khech. Office Building Concept Design</title>
 </head>
 
 <body>
+
     <div id="common_body">
+        <header class="page-header">
+            <div class="page-header-title">
+                <h1>Office Building</h1>
+                <h2>Facade Renovation</h2>
+            </div>
+            <nav class="page-header-nav">
+                <h4>
+                    <a href="/index.html" class="nav-link-main">Main</a>
+                </h4>
+            </nav>
+        </header>
 
-        <!-- [HERO_IMAGE] -->
-        <img class="img" src="images/content/office_building/ob_1.jpg" width="1200"
-            alt="Office Building – main image" />
 
-        <!-- [TEXT_BLOCK_MAIN] -->
-        <div class="middle_text">
-            <h3>
-                Concept design for an office building commissioned by a company for their new headquarter.
-            </h3>
+        <div id="common_body">
+
+            <section class="project-hero">
+                <img src="/images/content/office-building/ob_1.jpg" alt="PROJECT_TITLE main image"
+                    class="project-hero-img">
+            </section>
+
+
         </div>
 
-
-        <div class="idTop">
-            <img src="images/markup/arrow_top.png" width="64" height="64" alt="up" />
-        </div>
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                $('.idTop').click(function () {
-                    $('html, body').animate({ scrollTop: 0 }, 'slow');
-                });
-            });
-        </script>
-
-    </div>
 </body>
 
 </html>
