@@ -123,9 +123,22 @@ body {
   height: auto;
 }
 
+.image-block iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+}
+
 /* Полноширинная картинка */
 .project-section.full .image-block {
   flex: 1 1 100%;
+}
+
+.project-section.full .image-block img,
+.project-section.full .image-block iframe {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Две картинки рядом в строку */

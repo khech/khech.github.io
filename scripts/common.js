@@ -1,5 +1,5 @@
 // ============================
-// Script - Выравнивание двух картинок по одной высоте
+// Script - Выравнивание двух медиа (img / iframe) по одной высоте
 // ============================
 function layoutImagePairs() {
   const rows = document.querySelectorAll(
@@ -7,24 +7,45 @@ function layoutImagePairs() {
   );
 
   rows.forEach((row) => {
-    const imgs = row.querySelectorAll(".image-block img");
-    if (imgs.length !== 2) return;
+    // Берём и картинки, и видео
+    const media = row.querySelectorAll(".image-block img, .image-block iframe");
+    if (media.length !== 2) return;
 
-    const [img1, img2] = imgs;
+    const [el1, el2] = media;
 
     // Мобилка: сбрасываем всё и выходим
     if (window.innerWidth <= 768) {
-      imgs.forEach((img) => {
-        img.style.width = "";
-        img.style.height = "";
+      media.forEach((el) => {
+        el.style.width = "";
+        el.style.height = "";
       });
       return;
     }
 
-    // Ждём, пока картинки реально загрузятся
-    if (!img1.naturalWidth || !img2.naturalWidth) {
-      img1.addEventListener("load", layoutImagePairs, { once: true });
-      img2.addEventListener("load", layoutImagePairs, { once: true });
+    // Хелпер для соотношения сторон
+    const getRatio = (el) => {
+      const tag = el.tagName;
+      if (tag === "IMG") {
+        if (!el.naturalWidth || !el.naturalHeight) return null;
+        return el.naturalWidth / el.naturalHeight;
+      }
+      if (tag === "IFRAME") {
+        // берём то же соотношение, что и в CSS: aspect-ratio: 16 / 9;
+        return 16 / 9;
+      }
+      return null;
+    };
+
+    const k1 = getRatio(el1);
+    const k2 = getRatio(el2);
+
+    // Если картинка ещё не загрузилась — ждём загрузки и пересчёта
+    if (k1 == null || k2 == null) {
+      media.forEach((el) => {
+        if (el.tagName === "IMG" && (!el.naturalWidth || !el.naturalHeight)) {
+          el.addEventListener("load", layoutImagePairs, { once: true });
+        }
+      });
       return;
     }
 
@@ -32,19 +53,16 @@ function layoutImagePairs() {
     const gap = parseFloat(styles.columnGap || styles.gap || 0);
     const W = row.clientWidth;
 
-    const k1 = img1.naturalWidth / img1.naturalHeight;
-    const k2 = img2.naturalWidth / img2.naturalHeight;
-
-    // Высота H, при которой обе картинки:
+    // Высота H, при которой оба медиа:
     // 1) имеют одинаковую высоту
     // 2) плюс gap занимают всю ширину контейнера
     const H = (W - gap) / (k1 + k2);
     const w1 = H * k1;
     const w2 = H * k2;
 
-    img1.style.height = img2.style.height = H + "px";
-    img1.style.width = w1 + "px";
-    img2.style.width = w2 + "px";
+    el1.style.height = el2.style.height = H + "px";
+    el1.style.width = w1 + "px";
+    el2.style.width = w2 + "px";
   });
 }
 
