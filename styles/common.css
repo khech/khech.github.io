@@ -16,6 +16,10 @@ body {
   margin: 0;
   white-space: nowrap;
   text-decoration: none;
+
+  display: inline-block; /* важно */
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
 
 h1 {
