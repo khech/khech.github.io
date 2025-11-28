@@ -207,3 +207,82 @@ body {
     margin-bottom: 40px;
   }
 }
+
+/* =========================
+   LARGEVIEW: полноразмерные изображения
+   ========================= */
+
+/* Триггер: картинка, которую можно раскрыть */
+.image-block.largeview {
+  position: relative; /* для иконки */
+  cursor: zoom-in;
+}
+
+/* Иконка "можно раскрыть" в углу */
+.image-block.largeview .largeview-icon {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 22px;
+  height: 22px;
+  background-image: url("/images/markup/zoom.png"); /* TODO: заменить на реальный путь к иконке */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4); /* лёгкий контур, чтобы было видно на любой картинке */
+}
+
+/* Оверлей поверх сайта */
+.largeview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: none; /* скрыт по умолчанию */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Активное состояние */
+.largeview-overlay.is-open {
+  display: flex;
+}
+
+/* Внутренний контейнер: даёт скролл при зуме */
+.largeview-inner {
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+/* Картинка в режиме "уместить" */
+.largeview-img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  cursor: zoom-in;
+}
+
+/* Режим "зум": картинка может быть больше окна */
+.largeview-img.zoomed {
+  max-width: none;
+  max-height: none;
+  cursor: grab;
+}
+
+/* Кнопка закрытия (крестик) */
+.largeview-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  padding: 0;
+  background: transparent;
+  background-image: url("/images/markup/cross.png"); /* TODO: заменить на реальный путь к иконке */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}

@@ -98,3 +98,55 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ============================
+// Script - Full size pics
+// ============================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const overlay = document.getElementById("largeview");
+  if (!overlay) return;
+
+  const overlayImg = overlay.querySelector(".largeview-img");
+  const closeBtn = overlay.querySelector(".largeview-close");
+
+  // Открытие по клику на .image-block.largeview
+  document.querySelectorAll(".image-block.largeview").forEach(function (block) {
+    block.addEventListener("click", function () {
+      const fullSrc = block.dataset.full;
+      if (!fullSrc) return;
+
+      overlayImg.src = fullSrc;
+      overlayImg.classList.remove("zoomed");
+      overlay.classList.add("is-open");
+    });
+  });
+
+  // Закрытие по крестику
+  closeBtn.addEventListener("click", function () {
+    overlay.classList.remove("is-open");
+    overlayImg.src = "";
+  });
+
+  // Закрытие по клику на фон
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) {
+      overlay.classList.remove("is-open");
+      overlayImg.src = "";
+    }
+  });
+
+  // Переключение зума по клику на саму картинку
+  overlayImg.addEventListener("click", function (e) {
+    e.stopPropagation();
+    overlayImg.classList.toggle("zoomed");
+  });
+
+  // Закрытие по ESC
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && overlay.classList.contains("is-open")) {
+      overlay.classList.remove("is-open");
+      overlayImg.src = "";
+    }
+  });
+});
