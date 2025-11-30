@@ -132,42 +132,37 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* Пары картинок/видео встают в колонку */
   .project-section.split.images-row .section-body {
     flex-direction: column;
+    gap: var(--tile-gap);
   }
 
-  .project-section.split.images-row .image-block img {
-    width: 100%;
+  /* Медиа внутри image-block на мобиле всегда на всю ширину */
+  .project-section.split.images-row .image-block {
     height: auto;
   }
 
+  .project-section.split.images-row .image-block img,
+  .project-section.split.images-row .image-block iframe {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Общие настройки мобилки */
   .project-meta {
     gap: 4px 0;
   }
 
   .section-body {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .text-block,
   .image-block {
     flex: 1 1 auto;
-  }
-
-  .project-section.split.images-row .section-body {
-    flex-direction: column;
-    gap: var(
-      --tile-gap
-    ); /* на мобиле тоже можно использовать ту же переменную */
-  }
-
-  .project-section.split.images-row .image-block {
-    height: auto;
-  }
-
-  .project-section.split.images-row .image-block img {
-    width: 100%;
-    height: auto;
   }
 
   .project-section {
