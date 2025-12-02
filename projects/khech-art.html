@@ -135,15 +135,15 @@
     }
 
     .img4 {
-      top: 28%;
-      left: 8%;
+      top: 18%;
+      left: 19%;
       width: 30%;
       animation-delay: 0.55s;
       z-index: 6;
     }
 
     .img5 {
-      top: 36%;
+      top: 30%;
       left: 52%;
       width: 26%;
       animation-delay: 0.70s;
@@ -160,7 +160,7 @@
 
     .img6 {
       top: 20%;
-      left: 70%;
+      left: 55%;
       width: 22%;
       animation-delay: 1.00s;
       z-index: 9;
@@ -233,24 +233,30 @@
       margin-top: 2px;
     }
 
-    /* МОБИЛКА */
     @media (max-width: 900px) {
+
+      /* ВОЗВРАЩАЕМ ГЛОБАЛЬНЫЕ ОТСТУПЫ У КОНТЕЙНЕРА */
+      #common_body {
+        padding-left: var(--root-padding, 15px);
+        padding-right: var(--root-padding, 15px);
+        box-sizing: border-box;
+      }
 
       .art-works-animated {
         width: 100%;
-        margin: 4px auto 20px auto;
-        /* ближе к футеру */
-        padding: 8px 0 40px;
-        /* снизу меньше пространства */
-        min-height: 760px;
+        margin: 0 auto 10px auto;
+        padding: 0 0 20px 0;
+        min-height: 700px;
       }
 
+      /* быстрее на ~20% (0.6s → 0.48s) */
       .art-work-img {
         animation-duration: 0.48s;
       }
 
+      /* твоя текущая расстановка картинок */
       .img3 {
-        top: 10%;
+        top: 6%;
         left: 20%;
         width: 60%;
         animation-delay: 0.0s;
@@ -258,7 +264,7 @@
       }
 
       .img1 {
-        top: 18%;
+        top: 14%;
         left: 6%;
         width: 64%;
         animation-delay: 0.48s;
@@ -266,7 +272,7 @@
       }
 
       .img2 {
-        top: 24%;
+        top: 32%;
         left: 18%;
         width: 66%;
         animation-delay: 0.96s;
@@ -274,7 +280,7 @@
       }
 
       .img4 {
-        top: 30%;
+        top: 20%;
         left: 10%;
         width: 68%;
         animation-delay: 1.44s;
@@ -282,7 +288,7 @@
       }
 
       .img5 {
-        top: 36%;
+        top: 26%;
         left: 20%;
         width: 64%;
         animation-delay: 1.92s;
@@ -290,7 +296,7 @@
       }
 
       .img7 {
-        top: 42%;
+        top: 18%;
         left: 26%;
         width: 58%;
         animation-delay: 2.40s;
@@ -298,16 +304,17 @@
       }
 
       .img6 {
-        top: 8%;
+        /* RED_BIG — последняя и сверху */
+        top: 4%;
         left: 12%;
         width: 70%;
         animation-delay: 2.88s;
         z-index: 10;
       }
 
+      /* CTA — по центру кучки */
       .art-instagram-cta {
-        top: 30%;
-        /* центр кучки */
+        top: 24%;
         left: 50%;
         transform: translate(-50%, -50%);
         animation-delay: 3.5s;
