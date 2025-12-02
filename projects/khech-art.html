@@ -1,91 +1,382 @@
 ﻿<!doctype html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="shortcut icon" href="images/markup/favicon.ico" type="image/x-icon">
-
   <meta charset="utf-8">
-  <link rel="canonical" href="https://khech.com/khech_art.html">
 
+  <link rel="icon" href="/images/markup/favicon.ico">
+  <link rel="canonical" href="https://khech.com/projects/khech-art.html">
+
+  <meta name="description" content="Khech Art — Selected works by Arseniy Khechinashvili">
+  <meta name="author" content="Arseniy Khechinashvili">
+
+  <meta property="og:site_name" content="Khech. Architecture, Design, Digital">
   <meta property="og:title" content="Khech Art">
-  <meta property="og:description" content="Искусство">
-  <meta property="og:image" content="https://khech.com/images/preview/khech_art.jpg">
-  <meta property="og:url" content="https://khech.com/khech_art.html">
+  <meta property="og:description" content="Khech Art — Selected works by Arseniy Khechinashvili">
+  <meta property="og:image" content="https://khech.com/images/preview/khech-art.jpg">
+  <meta property="og:url" content="https://khech.com/projects/khech-art.html">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Khech Art">
-  <meta name="twitter:description" content="Искусство">
-  <meta name="twitter:image" content="https://khech.com/images/preview/khech_art.jpg">
+  <meta name="twitter:description" content="Khech Art — Selected works by Arseniy Khechinashvili">
+  <meta name="twitter:image" content="https://khech.com/images/preview/khech-art.jpg">
 
-  <title>Khech Art</title>
-  <style type="text/css">
-    body,
-    td,
-    th {
-      background: #000000
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&display=swap">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/styles/common.css">
+  <link rel="stylesheet" href="/styles/top_project.css">
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    .project-page,
+    .project-page * {
+      color: #fff !important;
+    }
+
+    /* ОБЛАСТЬ С РАБОТАМИ */
+    .art-works-animated {
+      position: relative;
+      width: min(100vw, 1100px);
+      margin: 16px auto 120px auto;
+      padding: 16px 0 120px;
+      min-height: 650px;
+      box-sizing: border-box;
+    }
+
+    /* ЗАТЕМНЕНИЕ С МЯГКИМ НИЗОМ */
+    .art-dim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.65) 0%,
+          rgba(0, 0, 0, 0.65) 60%,
+          rgba(0, 0, 0, 0.0) 100%);
+      opacity: 0;
+      animation: dimFade 1.2s ease-out forwards;
+      animation-delay: 1.35s;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    @keyframes dimFade {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .art-work-img {
+      position: absolute;
+      display: block;
+      background: #111;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+      border-radius: 0;
+
+      opacity: 0;
+      animation-name: artFadeIn;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-duration: 0.9s;
+      /* десктоп */
+    }
+
+    @keyframes artFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+
+      70% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ДЕСКТОП: быстрые появления */
+    .img1 {
+      top: 4%;
+      left: 6%;
+      width: 28%;
+      animation-delay: 0.10s;
+      z-index: 3;
+    }
+
+    .img2 {
+      top: 10%;
+      left: 40%;
+      width: 26%;
+      animation-delay: 0.25s;
+      z-index: 4;
+    }
+
+    .img3 {
+      top: 6%;
+      left: 68%;
+      width: 22%;
+      animation-delay: 0.40s;
+      z-index: 5;
+    }
+
+    .img4 {
+      top: 28%;
+      left: 8%;
+      width: 30%;
+      animation-delay: 0.55s;
+      z-index: 6;
+    }
+
+    .img5 {
+      top: 36%;
+      left: 52%;
+      width: 26%;
+      animation-delay: 0.70s;
+      z-index: 7;
+    }
+
+    .img7 {
+      top: 44%;
+      left: 30%;
+      width: 24%;
+      animation-delay: 0.85s;
+      z-index: 8;
+    }
+
+    .img6 {
+      top: 20%;
+      left: 70%;
+      width: 22%;
+      animation-delay: 1.00s;
+      z-index: 9;
+    }
+
+    /* CTA (десктоп) */
+    .art-instagram-cta {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      z-index: 10;
+      animation: instagramFadeIn 0.9s ease-out forwards;
+      animation-delay: 1.45s;
+    }
+
+    @keyframes instagramFadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .art-instagram-link {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .cta-label {
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: clamp(16px, 3vw, 22px);
+      opacity: 0.98;
+      text-shadow:
+        0 0 12px rgba(0, 0, 0, 1),
+        0 0 20px rgba(0, 0, 0, 1);
+    }
+
+    .cta-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: clamp(26px, 5vw, 40px);
+      text-shadow:
+        0 0 18px rgba(0, 0, 0, 1),
+        0 0 26px rgba(0, 0, 0, 1),
+        0 0 44px rgba(0, 0, 0, 1);
+    }
+
+    .cta-external-icon {
+      width: clamp(16px, 3vw, 22px);
+      height: auto;
+      display: inline-block;
+      filter: brightness(0) invert(1);
+      margin-top: 2px;
+    }
+
+    /* МОБИЛКА */
+    @media (max-width: 900px) {
+
+      .art-works-animated {
+        width: 100%;
+        margin: 4px auto 20px auto;
+        /* ближе к футеру */
+        padding: 8px 0 40px;
+        /* снизу меньше пространства */
+        min-height: 760px;
+      }
+
+      .art-work-img {
+        animation-duration: 0.48s;
+      }
+
+      .img3 {
+        top: 10%;
+        left: 20%;
+        width: 60%;
+        animation-delay: 0.0s;
+        z-index: 4;
+      }
+
+      .img1 {
+        top: 18%;
+        left: 6%;
+        width: 64%;
+        animation-delay: 0.48s;
+        z-index: 5;
+      }
+
+      .img2 {
+        top: 24%;
+        left: 18%;
+        width: 66%;
+        animation-delay: 0.96s;
+        z-index: 6;
+      }
+
+      .img4 {
+        top: 30%;
+        left: 10%;
+        width: 68%;
+        animation-delay: 1.44s;
+        z-index: 7;
+      }
+
+      .img5 {
+        top: 36%;
+        left: 20%;
+        width: 64%;
+        animation-delay: 1.92s;
+        z-index: 8;
+      }
+
+      .img7 {
+        top: 42%;
+        left: 26%;
+        width: 58%;
+        animation-delay: 2.40s;
+        z-index: 9;
+      }
+
+      .img6 {
+        top: 8%;
+        left: 12%;
+        width: 70%;
+        animation-delay: 2.88s;
+        z-index: 10;
+      }
+
+      .art-instagram-cta {
+        top: 30%;
+        /* центр кучки */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 3.5s;
+      }
+
+      .cta-handle {
+        font-size: clamp(22px, 6vw, 34px);
+      }
+
+      .cta-label {
+        font-size: clamp(14px, 3.5vw, 18px);
+      }
     }
   </style>
-  <link href="styles/top_project.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
-  <link href="styles/common.css" rel="stylesheet" type="text/css">
 
+  <title>Khech. Art</title>
 </head>
 
 <body>
   <div id="common_body">
 
-    <div id="project_hat">
-
-      <div class="title">
-        <h1>
-          <font style="color: #FFFFFF">Khech Art</font>
-        </h1>
-        <h2><a href="https://www.behance.net/arsekh09d9">
-            <font style="color: #E17618"> > Bechance link < </font>
-          </a> </h2>
+    <header class="page-header">
+      <div class="page-header-title">
+        <h1>Khech Art</h1>
+        <h2>Selected Works</h2>
       </div>
+      <nav class="page-header-nav">
+        <h4><a href="/index.html" class="nav-link-main">Main</a></h4>
+      </nav>
+    </header>
 
-      <a href="dk_mo.html">
-        <div class="left_blank_w">
-          <img src="images/markup/arrow_L_White.png" alt="" width="32" height="32" align="middle" />
+    <div class="project-page">
+
+      <section class="art-works-animated">
+
+        <div class="art-dim"></div>
+
+        <!-- изображения -->
+        <img src="/images/content/khech-art/1%20-%202%20copies.jpg" class="art-work-img img1" alt="Khech Art 1">
+        <img src="/images/content/khech-art/4%20-%202%20copies.jpg" class="art-work-img img2" alt="Khech Art 2">
+        <img src="/images/content/khech-art/5%20-%204%20copies.jpg" class="art-work-img img3" alt="Khech Art 3">
+        <img src="/images/content/khech-art/BLUE_BIG.jpg" class="art-work-img img4" alt="Khech Art Blue Big">
+        <img src="/images/content/khech-art/BLUE_SMALL.jpg" class="art-work-img img5" alt="Khech Art Blue Small">
+        <img src="/images/content/khech-art/RED_BIG.jpg" class="art-work-img img6" alt="Khech Art Red Big">
+        <img src="/images/content/khech-art/RED_SMALL.jpg" class="art-work-img img7" alt="Khech Art Red Small">
+
+        <!-- CTA -->
+        <div class="art-instagram-cta">
+          <a href="https://www.instagram.com/khech_art/" target="_blank" rel="noopener" class="art-instagram-link">
+            <span class="cta-label">More works on</span>
+            <span class="cta-handle">
+              @khech_art
+              <img src="/images/markup/external.png" class="cta-external-icon" alt="">
+            </span>
+          </a>
         </div>
-      </a>
 
-      <div class="right_blank_w" style="opacity: 0.3">
-        <img src="images/markup/arrow_R_White.png" alt="" width="32" height="32" align="middle" />
-      </div>
-
-      <a href="/">
-        <div class="cross_blank_w">
-          <img src="images/markup/cross_white.png" alt="" width="32" height="32" align="middle" />
-        </div>
-      </a>
+      </section>
 
     </div>
 
-  </div>
-
-  <img class="img" src="images/content/khech_art/A2906F.jpg" width="1200" alt="" />
-
-  <div align="center" style="margin-top: 90px; margin-bottom: 60px;">
-    <img class="img" src="images/content/khech_art/S000_1.jpg" width="600" alt="" />
-  </div>
-
-
-  <div class="idTop">
-    <img src="images/markup/arrow_top_White.png" width="64" height="64" alt="наверх" />
-  </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-
-  <script type="text/javascript">
-    $(function () {
-      $('.idTop').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
-      });
-    });
-  </script>
+    <footer class="page-footer">
+      <div class="page-footer-brand">
+        <h3><a href="/index.html" class="logo-font">Khech.</a></h3>
+      </div>
+      <nav class="page-footer-nav">
+        <h4><a href="/projects/khech-vr.html" class="nav-link-main">Next</a></h4>
+      </nav>
+    </footer>
 
   </div>
 </body>
