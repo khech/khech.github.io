@@ -110,60 +110,71 @@
     }
 
     /* ДЕСКТОП: быстрые появления */
+
+    .img4 {
+      top: 15%;
+      left: 19%;
+      width: 30%;
+      animation-delay: 1.20s;
+      z-index: 1;
+    }
+
+
     .img1 {
-      top: 4%;
+      top: 1%;
       left: 6%;
-      width: 28%;
-      animation-delay: 0.10s;
-      z-index: 3;
+      width: 25%;
+      animation-delay: 0.30s;
+      z-index: 2;
     }
 
     .img2 {
       top: 10%;
       left: 40%;
-      width: 26%;
-      animation-delay: 0.25s;
-      z-index: 4;
+      width: 25%;
+      animation-delay: 0.60s;
+      z-index: 3;
     }
 
     .img3 {
       top: 6%;
       left: 68%;
-      width: 22%;
-      animation-delay: 0.40s;
+      width: 25%;
+      animation-delay: 0.90s;
+      z-index: 4;
+    }
+
+
+    .img7 {
+      top: 44%;
+      left: 30%;
+      width: 15%;
+      animation-delay: 1.50s;
       z-index: 5;
     }
 
-    .img4 {
-      top: 18%;
-      left: 19%;
+    .img6 {
+      top: 23%;
+      left: 55%;
       width: 30%;
-      animation-delay: 0.55s;
+      animation-delay: 1.80s;
       z-index: 6;
     }
 
     .img5 {
       top: 30%;
       left: 52%;
-      width: 26%;
-      animation-delay: 0.70s;
+      width: 15%;
+      animation-delay: 2.10s;
       z-index: 7;
     }
 
-    .img7 {
-      top: 44%;
-      left: 30%;
-      width: 24%;
-      animation-delay: 0.85s;
-      z-index: 8;
-    }
-
-    .img6 {
+    .img8 {
       top: 20%;
-      left: 55%;
-      width: 22%;
-      animation-delay: 1.00s;
-      z-index: 9;
+      left: 23%;
+      width: 15%;
+      animation-delay: 2.40s;
+      z-index: 8;
     }
 
     /* CTA (десктоп) */
@@ -176,7 +187,7 @@
       opacity: 0;
       z-index: 10;
       animation: instagramFadeIn 0.9s ease-out forwards;
-      animation-delay: 1.45s;
+      animation-delay: 3.0s;
     }
 
     @keyframes instagramFadeIn {
@@ -233,7 +244,7 @@
       margin-top: 2px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 786px) {
 
       /* ВОЗВРАЩАЕМ ГЛОБАЛЬНЫЕ ОТСТУПЫ У КОНТЕЙНЕРА */
       #common_body {
@@ -255,61 +266,60 @@
       }
 
       /* твоя текущая расстановка картинок */
-      .img3 {
-        top: 6%;
-        left: 20%;
-        width: 60%;
-        animation-delay: 0.0s;
-        z-index: 4;
-      }
-
       .img1 {
-        top: 14%;
+        top: 1%;
         left: 6%;
-        width: 64%;
-        animation-delay: 0.48s;
-        z-index: 5;
+        width: 25%;
+        animation-delay: 0.30s;
+        z-index: 2;
       }
 
       .img2 {
-        top: 32%;
-        left: 18%;
-        width: 66%;
-        animation-delay: 0.96s;
-        z-index: 6;
+        top: 10%;
+        left: 40%;
+        width: 25%;
+        animation-delay: 0.60s;
+        z-index: 3;
       }
 
-      .img4 {
-        top: 20%;
-        left: 10%;
-        width: 68%;
-        animation-delay: 1.44s;
-        z-index: 7;
-      }
-
-      .img5 {
-        top: 26%;
-        left: 20%;
-        width: 64%;
-        animation-delay: 1.92s;
-        z-index: 8;
+      .img3 {
+        top: 6%;
+        left: 68%;
+        width: 25%;
+        animation-delay: 0.90s;
+        z-index: 4;
       }
 
       .img7 {
-        top: 18%;
-        left: 26%;
-        width: 58%;
-        animation-delay: 2.40s;
-        z-index: 9;
+        top: 44%;
+        left: 30%;
+        width: 15%;
+        animation-delay: 1.50s;
+        z-index: 5;
       }
 
       .img6 {
-        /* RED_BIG — последняя и сверху */
-        top: 4%;
-        left: 12%;
-        width: 70%;
-        animation-delay: 2.88s;
-        z-index: 10;
+        top: 23%;
+        left: 55%;
+        width: 30%;
+        animation-delay: 1.80s;
+        z-index: 6;
+      }
+
+      .img5 {
+        top: 30%;
+        left: 52%;
+        width: 15%;
+        animation-delay: 2.10s;
+        z-index: 7;
+      }
+
+      .img8 {
+        top: 20%;
+        left: 23%;
+        width: 15%;
+        animation-delay: 2.40s;
+        z-index: 8;
       }
 
       /* CTA — по центру кучки */
@@ -353,13 +363,15 @@
         <div class="art-dim"></div>
 
         <!-- изображения -->
-        <img src="/images/content/khech-art/1%20-%202%20copies.jpg" class="art-work-img img1" alt="Khech Art 1">
-        <img src="/images/content/khech-art/4%20-%202%20copies.jpg" class="art-work-img img2" alt="Khech Art 2">
-        <img src="/images/content/khech-art/5%20-%204%20copies.jpg" class="art-work-img img3" alt="Khech Art 3">
+        <img src="/images/content/khech-art/BLACK_MID.jpg" class="art-work-img img3" alt="Khech Art 1">
+        <img src="/images/content/khech-art/RED_MID.jpg" class="art-work-img img2" alt="Khech Art 2">
+        <img src="/images/content/khech-art/PINK_MID.jpg" class="art-work-img img1" alt="Khech Art 3">
         <img src="/images/content/khech-art/BLUE_BIG.jpg" class="art-work-img img4" alt="Khech Art Blue Big">
         <img src="/images/content/khech-art/BLUE_SMALL.jpg" class="art-work-img img5" alt="Khech Art Blue Small">
         <img src="/images/content/khech-art/RED_BIG.jpg" class="art-work-img img6" alt="Khech Art Red Big">
         <img src="/images/content/khech-art/RED_SMALL.jpg" class="art-work-img img7" alt="Khech Art Red Small">
+        <img src="/images/content/khech-art/GOLD_SMALL.jpg" class="art-work-img img8" alt="Khech Art Gold Small">
+
 
         <!-- CTA -->
         <div class="art-instagram-cta">
@@ -380,9 +392,6 @@
       <div class="page-footer-brand">
         <h3><a href="/index.html" class="logo-font">Khech.</a></h3>
       </div>
-      <nav class="page-footer-nav">
-        <h4><a href="/projects/khech-vr.html" class="nav-link-main">Next</a></h4>
-      </nav>
     </footer>
 
   </div>
