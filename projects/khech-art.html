@@ -42,17 +42,16 @@
       color: #fff !important;
     }
 
-    /* ОБЛАСТЬ С РАБОТАМИ */
+
     .art-works-animated {
       position: relative;
       width: min(100vw, 1100px);
       margin: 16px auto 120px auto;
       padding: 16px 0 120px;
-      min-height: 650px;
+      min-height: 500px;
       box-sizing: border-box;
     }
 
-    /* ЗАТЕМНЕНИЕ С МЯГКИМ НИЗОМ */
     .art-dim {
       position: absolute;
       inset: 0;
@@ -83,15 +82,12 @@
       background: #111;
       box-shadow:
         0 4px 24px rgba(0, 0, 0, 0.5),
-        /* магкая */
         14px 18px 4px rgba(0, 0, 0, 0.55);
-      /* жесткая */
       opacity: 0;
       animation-name: artFadeIn;
       animation-timing-function: ease-out;
       animation-fill-mode: forwards;
       animation-duration: 0.9s;
-      /* десктоп */
     }
 
     @keyframes artFadeIn {
@@ -110,8 +106,6 @@
         transform: scale(1);
       }
     }
-
-    /* ДЕСКТОП: быстрые появления */
 
     .img4 {
       top: 15%;
@@ -179,7 +173,6 @@
       z-index: 8;
     }
 
-    /* CTA (десктоп) */
     .art-instagram-cta {
       position: absolute;
       top: 50%;
@@ -247,7 +240,6 @@
 
     @media (max-width: 786px) {
 
-      /* ВОЗВРАЩАЕМ ГЛОБАЛЬНЫЕ ОТСТУПЫ У КОНТЕЙНЕРА */
       #common_body {
         padding-left: var(--root-padding, 15px);
         padding-right: var(--root-padding, 15px);
@@ -258,15 +250,13 @@
         width: 100%;
         margin: 0 auto 10px auto;
         padding: 0 0 20px 0;
-        min-height: 700px;
+        min-height: 400px;
       }
 
-      /* быстрее на ~20% (0.6s → 0.48s) */
       .art-work-img {
         animation-duration: 0.48s;
       }
 
-      /* твоя текущая расстановка картинок */
       .img1 {
         top: 1%;
         left: 6%;
@@ -323,7 +313,6 @@
         z-index: 8;
       }
 
-      /* CTA — по центру кучки */
       .art-instagram-cta {
         top: 24%;
         left: 50%;
