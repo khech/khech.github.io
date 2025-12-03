@@ -63,7 +63,7 @@
       opacity: 0;
       animation: dimFade 1.2s ease-out forwards;
       animation-delay: 1.35s;
-      z-index: 5;
+      z-index: 4;
       pointer-events: none;
     }
 
@@ -81,9 +81,11 @@
       position: absolute;
       display: block;
       background: #111;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-      border-radius: 0;
-
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.5),
+        /* магкая */
+        14px 18px 4px rgba(0, 0, 0, 0.55);
+      /* жесткая */
       opacity: 0;
       animation-name: artFadeIn;
       animation-timing-function: ease-out;
@@ -215,8 +217,11 @@
       font-weight: 400;
       font-size: clamp(16px, 3vw, 22px);
       text-shadow:
-        0 0 12px rgba(0, 0, 0, 1),
-        0 0 20px rgba(0, 0, 0, 1);
+        0 0 5px rgba(0, 0, 0, 1),
+        0 0 7px rgba(0, 0, 0, 1),
+        0 0 10px rgba(0, 0, 0, 1),
+        0 0 25px rgba(0, 0, 0, 1);
+
     }
 
     .cta-handle {
@@ -226,9 +231,10 @@
       font-weight: 700;
       font-size: clamp(26px, 5vw, 40px);
       text-shadow:
-        0 0 18px rgba(0, 0, 0, 1),
-        0 0 26px rgba(0, 0, 0, 1),
-        0 0 44px rgba(0, 0, 0, 1);
+        0 0 5px rgba(0, 0, 0, 1),
+        0 0 7px rgba(0, 0, 0, 1),
+        0 0 10px rgba(0, 0, 0, 1),
+        0 0 25px rgba(0, 0, 0, 1);
     }
 
     .cta-external-icon {
