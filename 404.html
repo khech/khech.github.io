@@ -54,6 +54,7 @@
             /* как твой h1 */
             font-weight: 900;
             margin: 0 0 10px;
+            white-space: nowrap;
         }
 
         .error-title {
@@ -62,6 +63,7 @@
             font-weight: 400;
             margin: 0 0 20px;
             color: #5A5A5A;
+            white-space: nowrap;
         }
 
         .error-text {
@@ -69,6 +71,7 @@
             font-weight: 300;
             margin: 0 0 24px;
             color: #696969;
+            white-space: nowrap;
         }
 
         .error-image {
@@ -90,27 +93,35 @@
         
         @media (max-width: 600px) {
             .error-page {
-                padding: 12px;
+                padding: 8px;
             }
 
             .error-wrapper {
-                padding: 30px 12px;
+                padding: 18px 10px;
             }
 
             .error-code {
-                font-size: 96px;
+                font-size: clamp(48px, 14vw, 77px);
+                white-space: nowrap;
             }
 
             .error-title {
-                font-size: 36px;
+                font-size: clamp(20px, 6.5vw, 29px);
+                white-space: nowrap;
             }
 
             .error-text {
-                font-size: 22px;
+                font-size: clamp(14px, 4.5vw, 18px);
+                white-space: nowrap;
             }
 
             .error-image img {
-                max-width: 360px;
+                max-width: 288px;
+            }
+
+            .error-wrapper {
+                overflow: hidden;
+                text-overflow: clip;
             }
         }
     </style>
@@ -123,7 +134,8 @@
 
             <div class="error-code">404</div>
             <div class="error-title">Page not found</div>
-            <div class="error-title">But you found the Cat<br>Congratulations!</div>
+            <div class="error-title">But you found the Cat</div>
+            <div class="error-title">Congratulations!</div>
 
             <div class="error-image">
 
