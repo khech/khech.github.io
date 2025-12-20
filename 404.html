@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <title>404 – Page not found</title>
 
@@ -42,6 +43,10 @@
         .error-wrapper {
             text-align: center;
             padding: 40px 20px;
+            width: 90%;
+            max-width: 800px;
+            box-sizing: border-box;
+            margin: 0 auto;
         }
 
         .error-code {
@@ -84,20 +89,28 @@
 
         
         @media (max-width: 600px) {
+            .error-page {
+                padding: 12px;
+            }
+
+            .error-wrapper {
+                padding: 30px 12px;
+            }
+
             .error-code {
-                font-size: 64px;
+                font-size: 96px;
             }
 
             .error-title {
-                font-size: 32px;
+                font-size: 36px;
             }
 
             .error-text {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .error-image img {
-                max-width: 300px;
+                max-width: 360px;
             }
         }
     </style>
