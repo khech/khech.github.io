@@ -425,6 +425,8 @@ function fadeViewerControls(visible) {
 }
 function openWork(index) {
   if (viewer.open || closingViewer) return;
+  viewerTouch = null; suppressViewerClickUntil = 0;
+  viewerWheelTime = viewerWheelStepTime = -Infinity; viewerWheelTotal = 0;
   setMenu(null);
   openedFrom = items[index].button; savedScroll = scrollPosition();
   savedReturnState = captureRibbonState();
@@ -474,8 +476,79 @@ function requestClose() {
   if (closingViewer) return;
   if (hasViewerHistory) history.back(); else dismissViewer();
 }
+function stepViewer(direction) {
+  if (!viewer.open || closingViewer || works.length < 2) return;
+  const index = works.findIndex(work => work.id === viewerWork.id);
+  const next = (index + direction + works.length) % works.length;
+  viewerWork = works[next];
+  // Keep the ribbon and closing animation aligned with the displayed work.
+  const itemIndex = nearest(scrollPosition() + viewport / 2);
+  const candidates = items.filter(item => item.work.id === viewerWork.id);
+  const target = candidates.reduce((best, item) =>
+    Math.abs(item.center - items[itemIndex].center) < Math.abs(best.center - items[itemIndex].center) ? item : best
+  );
+  openedFrom = target.button;
+  setScroll(target.center - viewport / 2);
+  mode = 'center'; mousePosition = null; hovered = -1;
+  renderRibbon(0, true);
+  savedScroll = scrollPosition();
+  savedReturnState = captureRibbonState();
+  renderWorkInfo();
+  renderViewThumbnails();
+  showViewerPhoto(currentView(viewerWork), true);
+}
+let viewerTouch = null, suppressViewerClickUntil = 0;
+let viewerWheelTime = -Infinity, viewerWheelTotal = 0, viewerWheelStepTime = -Infinity;
+viewer.addEventListener('keydown', event => {
+  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  const next = ['ArrowRight', 'ArrowDown'].includes(event.key);
+  const previous = ['ArrowLeft', 'ArrowUp'].includes(event.key);
+  if (!next && !previous) return;
+  event.preventDefault();
+  stepViewer(next ? 1 : -1);
+});
+viewer.addEventListener('touchstart', event => {
+  viewerTouch = event.touches.length === 1 && !event.target.closest('#viewer-views, #viewer-info, button')
+    ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+}, { passive: true });
+viewer.addEventListener('touchmove', event => {
+  if (event.touches.length !== 1) viewerTouch = null;
+  if (!viewerTouch) return;
+  const dx = event.touches[0].clientX - viewerTouch.x;
+  const dy = event.touches[0].clientY - viewerTouch.y;
+  if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) event.preventDefault();
+}, { passive: false });
+viewer.addEventListener('touchend', event => {
+  const start = viewerTouch;
+  viewerTouch = null;
+  if (!start || event.touches.length || !event.changedTouches.length) return;
+  const dx = event.changedTouches[0].clientX - start.x;
+  const dy = event.changedTouches[0].clientY - start.y;
+  if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.3) return;
+  suppressViewerClickUntil = performance.now() + 500;
+  stepViewer(dx < 0 ? 1 : -1);
+}, { passive: true });
+viewer.addEventListener('touchcancel', () => { viewerTouch = null; }, { passive: true });
+viewer.addEventListener('wheel', event => {
+  if (!viewer.open || closingViewer || event.ctrlKey || event.target.closest('#viewer-views')) return;
+  event.preventDefault();
+  const now = performance.now();
+  const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+  const unit = event.deltaMode === 1 ? 18 : event.deltaMode === 2 ? viewer.clientHeight : 1;
+  // Absorb trackpad momentum instead of skipping a series of paintings.
+  if (now - viewerWheelTime > 180) viewerWheelTotal = 0;
+  viewerWheelTime = now;
+  if (now - viewerWheelStepTime < 450) { viewerWheelTotal = 0; return; }
+  if (Math.sign(delta) !== Math.sign(viewerWheelTotal)) viewerWheelTotal = 0;
+  viewerWheelTotal += delta * unit;
+  if (Math.abs(viewerWheelTotal) < 40) return;
+  stepViewer(Math.sign(viewerWheelTotal));
+  viewerWheelTotal = 0;
+  viewerWheelStepTime = now;
+}, { passive: false });
 viewer.addEventListener('cancel', event => { event.preventDefault(); requestClose(); });
 viewer.addEventListener('click', event => {
+  if (performance.now() < suppressViewerClickUntil) { event.preventDefault(); return; }
   if (!event.target.closest('#viewer-image, #viewer-info, button')) requestClose();
 });
 addEventListener('popstate', () => { hasViewerHistory = false; dismissViewer(); });
@@ -522,6 +595,8 @@ themeToggle.addEventListener('click', () => {
 const artMenu = document.querySelector('#art-menu');
 const menuFilters = document.querySelector('#menu-filters');
 const menuContacts = document.querySelector('#menu-contacts');
+const menuAbout = document.querySelector('#menu-about');
+const about = document.querySelector('#about');
 const filterOptions = document.querySelector('#filter-options');
 const contactOptions = document.querySelector('#contact-options');
 const menuStatus = document.querySelector('#menu-status');
@@ -547,6 +622,33 @@ function setMenu(name) {
 }
 menuFilters.addEventListener('click', () => setMenu(openMenu === 'filters' ? null : 'filters'));
 menuContacts.addEventListener('click', () => setMenu(openMenu === 'contacts' ? null : 'contacts'));
+let closingAbout = false;
+async function dismissAbout() {
+  if (!about.open || closingAbout) return;
+  closingAbout = true;
+  const backdrop = getComputedStyle(about, '::backdrop');
+  about.style.setProperty('--about-veil-opacity', backdrop.opacity);
+  about.style.setProperty('--about-blur', backdrop.backdropFilter || backdrop.webkitBackdropFilter);
+  about.style.setProperty('--about-text-opacity', getComputedStyle(about.querySelector('.about-text')).opacity);
+  about.classList.add('is-closing');
+  if (!reducedMotion.matches) {
+    await Promise.all(about.getAnimations({ subtree: true }).map(animation => animation.finished.catch(() => {})));
+  }
+  about.close();
+  about.classList.remove('is-closing');
+  closingAbout = false;
+}
+menuAbout.addEventListener('click', () => {
+  setMenu(null);
+  about.showModal();
+});
+about.addEventListener('click', event => {
+  if (event.target.closest('a')) return;
+  event.preventDefault();
+  event.stopPropagation();
+  dismissAbout();
+});
+about.addEventListener('cancel', event => { event.preventDefault(); dismissAbout(); });
 document.addEventListener('click', event => {
   if (!openMenu || artMenu.contains(event.target)) return;
   // The outside tap dismisses navigation; it does not also open a painting.

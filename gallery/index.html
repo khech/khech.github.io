@@ -32,11 +32,11 @@
     <div id="ribbon" class="ribbon"></div>
   </main>
   <div class="ribbon-edges" aria-hidden="true"></div>
-  <span id="gallery-brand" aria-label="Khech">Khech.</span>
+  <a id="gallery-brand" href="/" aria-label="Khech — главная">Khech.</a>
   <button id="theme-toggle" type="button" aria-label="Включить тёмный фон" aria-pressed="false"></button>
   <nav id="art-menu" aria-label="Gallery menu">
     <div class="menu-group">
-      <button id="menu-filters" type="button" aria-expanded="false" aria-controls="filter-options">filters</button>
+      <button id="menu-filters" type="button" aria-expanded="false" aria-controls="filter-options">Filters</button>
       <div id="filter-options" class="menu-options" hidden>
         <button type="button" data-filter="available" aria-pressed="false">available</button>
         <button type="button" data-filter="L" aria-pressed="true">large</button>
@@ -45,7 +45,10 @@
       </div>
     </div>
     <div class="menu-group">
-      <button id="menu-contacts" type="button" aria-expanded="false" aria-controls="contact-options">contacts</button>
+      <button id="menu-about" type="button" aria-haspopup="dialog" aria-controls="about">About</button>
+    </div>
+    <div class="menu-group">
+      <button id="menu-contacts" type="button" aria-expanded="false" aria-controls="contact-options">Contacts</button>
       <div id="contact-options" class="menu-options" hidden>
         <button id="contact-email" type="button" aria-label="Copy email arsekh@gmail.com">arsekh@gmail.com</button>
         <a id="contact-telegram" href="https://t.me/khech" target="_blank" rel="noopener noreferrer">telegram</a>
@@ -54,6 +57,14 @@
       </div>
     </div>
   </nav>
+  <dialog id="about" aria-label="About Arseniy Khechinashvili" lang="en">
+    <div class="about-text">
+      <p>Hi, I’m Arseniy Khechinashvili, a multidisciplinary artist and <a href="/studio/" target="_blank" rel="noopener noreferrer">architect</a>.</p>
+      <p>My work explores abstract forms, street art, and visual chronicles of urban life.</p>
+      <p>Originally from Moscow, I’m now based in Tbilisi.</p>
+      <p>All available works in this gallery are for sale.</p>
+    </div>
+  </dialog>
   <dialog id="viewer" aria-label="Просмотр картины">
     <img id="viewer-image" alt="" draggable="false">
     <section id="viewer-info" aria-label="Сведения о работе">
