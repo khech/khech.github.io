@@ -49,7 +49,7 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 .menu-group { position: relative; }
 #art-menu button, #art-menu a { display: block; position: relative; margin: 0; padding: 0; border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; text-decoration: none; white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 #art-menu > .menu-group > button { transition: opacity 160ms ease; }
-#art-menu[data-open="filters"] #menu-contacts, #art-menu[data-open="contacts"] #menu-filters { opacity: .35; }
+#art-menu[data-open="filters"] :is(#menu-about, #menu-contacts), #art-menu[data-open="contacts"] :is(#menu-filters, #menu-about) { opacity: .35; }
 .menu-options { position: absolute; top: calc(100% + 26px); left: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 #contact-options { left: auto; right: 0; align-items: flex-end; }
 #art-menu #contact-options > * { text-align: right; }
@@ -64,6 +64,7 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 @media (orientation: portrait) {
   #art-menu { top: auto; right: max(var(--edge), env(safe-area-inset-right)); bottom: max(28px, env(safe-area-inset-bottom)); }
   #art-menu .menu-options { top: auto; bottom: calc(100% + 26px); }
+  #art-menu #filter-options { left: 20px; }
   #gallery-brand { top: max(20px, env(safe-area-inset-top)); bottom: auto; }
 }
 @media (prefers-reduced-motion: reduce) { #art-menu > .menu-group > button { transition: none; } }
@@ -87,7 +88,9 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 .about-text { width: 100%; max-width: 760px; margin: auto; padding: 24px 0; font-size: clamp(22px, 2.5vw, 36px); line-height: 1.4; }
 .about-text p { margin: 0 0 1em; }
 .about-text p:last-child { margin-bottom: 0; }
-.about-text a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .15em; }
+.about-text a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .15em; -webkit-tap-highlight-color: transparent; }
+.about-text a:focus { outline: none; }
+:root[data-input="keyboard"] .about-text a:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 
 
 /* Trial edge treatment: adjust depth/blur after the artist's visual review. */
