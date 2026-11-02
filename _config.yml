@@ -1,0 +1,11 @@
+# Keep development materials out of the generated GitHub Pages site.
+exclude:
+  - 99_Agent
+  - docs
+  - tools
+  - README.md
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - projects/0-project-template.html

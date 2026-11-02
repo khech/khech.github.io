@@ -5,3 +5,6 @@
 _notes/
 /bower_components/
 /node_modules/
+# Local agent notes, screenshots and checks are not website source.
+/99_Agent/
+/docs/superpowers/
