@@ -42,6 +42,12 @@
         <button type="button" data-filter="L" aria-pressed="true">large</button>
         <button type="button" data-filter="M" aria-pressed="true">medium</button>
         <button type="button" data-filter="S" aria-pressed="true">small</button>
+        <div class="series-options" role="group" aria-label="Series">
+          <button type="button" data-series="all" aria-pressed="true">all series</button>
+          <button type="button" data-series="Streets" aria-pressed="false">Streets</button>
+          <button type="button" data-series="Abstract Begining" aria-pressed="false">Abstract Begining</button>
+          <button type="button" data-series="Abstract Tbilisi" aria-pressed="false">Abstract Tbilisi</button>
+        </div>
       </div>
     </div>
     <div class="menu-group">
@@ -69,6 +75,7 @@
     <img id="viewer-image" alt="" draggable="false">
     <section id="viewer-info" aria-label="Сведения о работе">
       <h2 id="viewer-title"></h2>
+      <p id="viewer-series"></p>
       <div id="viewer-meta"></div>
     </section>
     <nav id="viewer-views" aria-label="Ракурсы этой картины" hidden></nav>

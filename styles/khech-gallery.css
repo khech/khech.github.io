@@ -30,6 +30,9 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 #viewer-info { position: absolute; width: 200px; color: var(--ink); font-family: "Roboto", Arial, sans-serif; font-size: 27px; font-weight: 400; line-height: 1.4; }
 #viewer-title { margin: 0; font: inherit; font-weight: 700; line-height: 1.25; }
 #viewer-meta { display: flex; flex-direction: column; gap: 4px; margin-top: 14px; }
+#viewer-series { margin: 14px 0 0; font: inherit; }
+#viewer-series:empty { display: none; }
+#viewer[data-info-layout="side"] #viewer-series { font-size: .74em; }
 #viewer-meta p { margin: 0; font: inherit; }
 #viewer[data-info-layout="side"] #viewer-meta { font-size: .74em; }
 #viewer[data-info-layout="top"] #viewer-title { font-size: 1.5em; }
@@ -54,6 +57,7 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 #contact-options { left: auto; right: 0; align-items: flex-end; }
 #art-menu #contact-options > * { text-align: right; }
 .menu-options[hidden] { display: none; }
+.series-options { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 14px; }
 #filter-options button::before { content: ""; position: absolute; width: var(--menu-dot); height: var(--menu-dot); left: -20px; top: calc(50% - var(--menu-dot) / 2); background: var(--ink); border-radius: 50%; opacity: 0; }
 #filter-options button[aria-pressed="true"]::before { opacity: 1; }
 #art-menu button:focus { outline: none; }

@@ -289,6 +289,7 @@ function ribbonPhotoRect(button, view) {
 }
 function renderWorkInfo() {
   document.querySelector('#viewer-title').textContent = viewerWork.title || viewerWork.id;
+  document.querySelector('#viewer-series').textContent = viewerWork.series || '';
   const rows = [
     [viewerWork.year, viewerWork.location].filter(Boolean).join(' · '),
     viewerWork.dimensionsCm?.length ? viewerWork.dimensionsCm.join('×') + ' cm' : ''
@@ -601,6 +602,7 @@ const filterOptions = document.querySelector('#filter-options');
 const contactOptions = document.querySelector('#contact-options');
 const menuStatus = document.querySelector('#menu-status');
 let openMenu = null, availableOnly = false, copySequence = 0;
+let selectedSeries = 'all';
 const selectedSizes = new Set(['L', 'M', 'S']);
 artMenu.addEventListener('wheel', event => {
   if (viewer.open || event.ctrlKey) return;
@@ -666,6 +668,7 @@ function applyFilters() {
   works = allWorks.filter(work =>
     (!availableOnly || (!work.sold && work.price != null && String(work.price).trim() !== '')) &&
     selectedSizes.has(work.sizeCategory)
+    && (selectedSeries === 'all' || work.series === selectedSeries)
   );
   const index = works.findIndex(work => work.id === oldCenterId);
   mousePosition = null;
@@ -673,6 +676,14 @@ function applyFilters() {
   makeRibbon(index >= 0 ? { ...oldState, index, selectedId } : {});
 }
 filterOptions.addEventListener('click', event => {
+  const seriesButton = event.target.closest('[data-series]');
+  if (seriesButton) {
+    selectedSeries = seriesButton.dataset.series;
+    filterOptions.querySelectorAll('[data-series]').forEach(button =>
+      button.setAttribute('aria-pressed', String(button.dataset.series === selectedSeries)));
+    applyFilters();
+    return;
+  }
   const button = event.target.closest('[data-filter]');
   if (!button) return;
   const value = button.dataset.filter;
