@@ -1,9 +1,15 @@
 html { color-scheme: light; }
 * { box-sizing: border-box; }
-body { margin: 0; background: #fff; color: #373737; font-family: "Work Sans", sans-serif; }
-main { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 32px 24px; }
-h1 { margin: 0 0 40px; font-size: clamp(56px, 10vw, 88px); font-weight: 900; line-height: 1; letter-spacing: -0.065em; }
-nav { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 6px 12px; color: inherit; font-size: clamp(22px, 4vw, 28px); line-height: 1.4; text-decoration: none; text-underline-offset: 6px; }
-a:hover { text-decoration: underline; }
-a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+body { margin: 0; background: #fff; color: #373737; font-family: "Roboto", Arial, sans-serif; }
+main { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 24px; }
+.landing-composition { display: grid; grid-template-columns: max-content max-content; column-gap: 8px; align-items: start; transform: translateX(12px); }
+h1 { grid-column: 1; grid-row: 1; margin: 0; font-family: "Work Sans", "Roboto", sans-serif; font-size: 45px; font-weight: 900; line-height: 1; white-space: nowrap; mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
+nav { grid-column: 2; grid-row: 2; display: flex; flex-direction: column; align-items: flex-start; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; font-size: 27px; font-weight: 400; line-height: 1.2; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; -webkit-tap-highlight-color: transparent; }
+nav a:hover { opacity: .7; }
+nav a:active { opacity: .6; }
+nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+@media (max-width: 768px) {
+  /* Lower the group toward the thumb zone; keep the site's 45/27px type. */
+  .landing-composition { transform: translate(min(20px, 4vw), 8svh); }
+}

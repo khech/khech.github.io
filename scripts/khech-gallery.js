@@ -64,7 +64,7 @@ function makeRibbon(state = {}) {
   let cursor = 0;
   const shapes = displayWorks.map(work => {
     const ratio = work.width / work.height;
-    const longEdge = baseEdge * (SIZE_SCALE[work.sizeCategory] ?? 1) * heightScale * (axis === 'x' ? 1.1 : 1);
+    const longEdge = baseEdge * (SIZE_SCALE[work.sizeCategory] ?? 1) * heightScale * (axis === 'x' ? 1.32 : 1);
     const width = longEdge * Math.min(1, ratio);
     const height = longEdge / Math.max(1, ratio);
     const length = axis === 'x' ? width : height;
@@ -225,7 +225,7 @@ function renderRibbonCaption() {
   const gap = 16;
   // Reserve the final enlarged width from the first frame, avoiding reflow.
   const focusedPhotoWidth = unscaledWidth * ribbonFocusScale();
-  const titleWidth = axis === 'x' ? Math.max(120, focusedPhotoWidth)
+  const titleWidth = axis === 'x' ? Math.max(180, focusedPhotoWidth)
     : Math.min(160, Math.max(0, (layoutWidth - focusedPhotoWidth) / 2 - gap - 20));
   ribbonTitle.style.width = `${titleWidth}px`;
   const titleX = axis === 'x' ? photo.left : photo.left - gap - titleWidth;
@@ -328,7 +328,7 @@ gallery.addEventListener('keydown', event => {
   event.preventDefault();
   mode = 'center'; hovered = -1;
   const index = Math.max(0, Math.min(items.length - 1, nearest(scrollPosition() + viewport / 2) + (next ? 1 : -1)));
-  gallery.scrollTo({ [axis === 'x' ? 'left' : 'top']: items[index].center - viewport / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  gallery.scrollTo({ [axis === 'x' ? 'left' : 'top']: items[index].center - viewport / 2, behavior: 'instant' });
 });
 function websiteTitle(work) {
   return work.displayTitle || work.title || '';
@@ -486,7 +486,7 @@ function fadeViewerControls(visible) {
 function openWork(index) {
   if (viewer.open || closingViewer) return;
   viewerTouch = null; suppressViewerClickUntil = 0;
-  viewerWheelTime = viewerWheelStepTime = -Infinity; viewerWheelTotal = 0;
+  viewerWheelTotal = 0;
   setMenu(null);
   openedFrom = items[index].button; savedScroll = scrollPosition();
   savedReturnState = captureRibbonState();
@@ -555,10 +555,10 @@ function stepViewer(direction) {
   savedReturnState = captureRibbonState();
   renderWorkInfo();
   renderViewThumbnails();
-  showViewerPhoto(currentView(viewerWork), true);
+  showViewerPhoto(currentView(viewerWork));
 }
 let viewerTouch = null, suppressViewerClickUntil = 0;
-let viewerWheelTime = -Infinity, viewerWheelTotal = 0, viewerWheelStepTime = -Infinity;
+let viewerWheelTotal = 0;
 viewer.addEventListener('keydown', event => {
   if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
   const next = ['ArrowRight', 'ArrowDown'].includes(event.key);
@@ -592,19 +592,14 @@ viewer.addEventListener('touchcancel', () => { viewerTouch = null; }, { passive:
 viewer.addEventListener('wheel', event => {
   if (!viewer.open || closingViewer || event.ctrlKey || event.target.closest('#viewer-views')) return;
   event.preventDefault();
-  const now = performance.now();
   const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
   const unit = event.deltaMode === 1 ? 18 : event.deltaMode === 2 ? viewer.clientHeight : 1;
-  // Absorb trackpad momentum instead of skipping a series of paintings.
-  if (now - viewerWheelTime > 180) viewerWheelTotal = 0;
-  viewerWheelTime = now;
-  if (now - viewerWheelStepTime < 450) { viewerWheelTotal = 0; return; }
+  // Accumulate tiny trackpad deltas without a time-based navigation lock.
   if (Math.sign(delta) !== Math.sign(viewerWheelTotal)) viewerWheelTotal = 0;
   viewerWheelTotal += delta * unit;
   if (Math.abs(viewerWheelTotal) < 40) return;
   stepViewer(Math.sign(viewerWheelTotal));
   viewerWheelTotal = 0;
-  viewerWheelStepTime = now;
 }, { passive: false });
 viewer.addEventListener('cancel', event => { event.preventDefault(); requestClose(); });
 viewer.addEventListener('click', event => {
