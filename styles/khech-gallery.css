@@ -23,7 +23,7 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 @media (prefers-reduced-motion: reduce) { dialog::backdrop, dialog.is-closing::backdrop { animation: none; } }
 #viewer-image { position: absolute; display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; transform-origin: center; }
 #gallery-error { position: fixed; inset: 45% 24px auto; text-align: center; font-size: 14px; }
-#gallery-brand { position: fixed; z-index: 2; left: max(var(--edge), env(safe-area-inset-left)); bottom: max(28px, env(safe-area-inset-bottom)); color: var(--ink); font-family: "Work Sans", "Roboto", sans-serif; font-size: 45px; font-weight: 900; line-height: 1; white-space: nowrap; display: inline-block; text-decoration: none; mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
+#gallery-brand { position: fixed; z-index: 2; left: max(var(--edge), env(safe-area-inset-left)); bottom: max(28px, env(safe-area-inset-bottom)); color: var(--ink); font-family: "Work Sans", "Roboto", sans-serif; font-size: 45px; font-weight: 900; line-height: 1; white-space: nowrap; display: inline-block; text-decoration: none; }
 #theme-toggle { position: fixed; z-index: 3; top: max(10px, env(safe-area-inset-top)); right: max(calc(var(--edge) - 22px), env(safe-area-inset-right)); width: 44px; height: 44px; padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 #theme-toggle::before { content: ""; position: absolute; left: 17px; top: 17px; width: var(--menu-dot); height: var(--menu-dot); border-radius: 50%; background: var(--ink); }
 @media (prefers-reduced-motion: reduce) { body { transition: none; } }
@@ -134,3 +134,19 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 }
 
 
+
+/* Selected ribbon work: above/below in landscape, side columns in portrait. */
+#ribbon-caption { position: absolute; inset: 0; z-index: 1; pointer-events: none; color: var(--ink); font: 14px/1.25 "Roboto", Arial, sans-serif; }
+#ribbon-caption[hidden] { display: none; }
+#ribbon-caption span { position: absolute; left: 0; top: 0; display: block; will-change: transform; }
+#ribbon-caption span[hidden] { display: none; }
+#ribbon-title { overflow-wrap: anywhere; font-weight: 700; }
+#ribbon-year { white-space: nowrap; }
+#ribbon-caption[data-axis="y"] { font-size: 12px; }
+#ribbon-caption[data-axis="y"] #ribbon-title { text-align: right; }
+body:has(#viewer[open]) #ribbon-caption { visibility: hidden; }
+
+#gallery-brand img { display: block; width: auto; height: 1em; }
+#gallery-brand .brand-logo-white { display: none; }
+:root[data-theme="dark"] #gallery-brand .brand-logo-black { display: none; }
+:root[data-theme="dark"] #gallery-brand .brand-logo-white { display: block; }

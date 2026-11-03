@@ -1,6 +1,9 @@
 // Khech-Gallery: native scrolling, bounded repetitions, layout expansion.
 const gallery = document.querySelector('#gallery');
 const ribbon = document.querySelector('#ribbon');
+const ribbonCaption = document.querySelector('#ribbon-caption');
+const ribbonTitle = document.querySelector('#ribbon-title');
+const ribbonYear = document.querySelector('#ribbon-year');
 const viewer = document.querySelector('#viewer');
 const viewerImage = document.querySelector('#viewer-image');
 const viewNav = document.querySelector('#viewer-views');
@@ -34,6 +37,7 @@ let mousePosition = null;
 let viewerAnimation = null, viewerWork = null, viewerView = null, closingViewer = false, viewerSequence = 0;
 const selectedViews = new Map();
 const scrollPosition = () => axis === 'x' ? gallery.scrollLeft : gallery.scrollTop;
+const ribbonFocusScale = () => RIBBON_FOCUS_SCALE * (axis === 'x' ? 1.1 : 1);
 function setScroll(value) { if (axis === 'x') gallery.scrollLeft = value; else gallery.scrollTop = value; }
 function nearest(position) {
   let best = 0, distance = Infinity;
@@ -41,17 +45,26 @@ function nearest(position) {
   return best;
 }
 function makeRibbon(state = {}) {
-  const initialIndex = state.index || 0, fraction = state.fraction || 0;
   rebuilding = true;
   layoutWidth = gallery.clientWidth; layoutHeight = gallery.clientHeight;
   axis = layoutWidth >= layoutHeight ? 'x' : 'y';
+  // State indices and fractions always use oldest-to-newest catalogue order.
+  const chronologicalIndex = state.index ?? Math.max(0, works.length - 3);
+  const initialIndex = axis === 'x' ? chronologicalIndex : works.length - 1 - chronologicalIndex;
+  const fraction = (state.fraction || 0) * (axis === 'x' ? 1 : -1);
+  const displayWorks = axis === 'x' ? works : [...works].reverse();
   gallery.dataset.axis = axis;
   viewport = axis === 'x' ? layoutWidth : layoutHeight;
   const heightScale = axis === 'x' ? Math.min(1, layoutHeight / 700) : 1;
+  // Fluid landscape size, plus the artist's extra 10% for every landscape window.
+  // Equivalent to clamp(120px, calc(84px + 6vh), 180px); portrait keeps its calibration.
+  const baseEdge = axis === 'x'
+    ? Math.max(RIBBON_BASE_EDGE, Math.min(180, 84 + layoutHeight * .06))
+    : RIBBON_BASE_EDGE;
   let cursor = 0;
-  const shapes = works.map(work => {
+  const shapes = displayWorks.map(work => {
     const ratio = work.width / work.height;
-    const longEdge = RIBBON_BASE_EDGE * SIZE_SCALE[work.sizeCategory] * heightScale;
+    const longEdge = baseEdge * (SIZE_SCALE[work.sizeCategory] ?? 1) * heightScale * (axis === 'x' ? 1.1 : 1);
     const width = longEdge * Math.min(1, ratio);
     const height = longEdge / Math.max(1, ratio);
     const length = axis === 'x' ? width : height;
@@ -62,6 +75,7 @@ function makeRibbon(state = {}) {
   cycle = cursor;
   if (!works.length) {
     ribbon.replaceChildren(); items = []; active = -1; hovered = -1;
+    ribbonCaption.hidden = true;
     ribbon.style.width = '100%'; ribbon.style.height = '100%';
     gallery.scrollLeft = 0; gallery.scrollTop = 0;
     ribbonState = null; rebuilding = false;
@@ -75,17 +89,17 @@ function makeRibbon(state = {}) {
   ribbon.style.width = axis === 'x' ? `${SCROLL_RUNWAY}px` : '100%';
   ribbon.style.height = axis === 'y' ? `${SCROLL_RUNWAY}px` : '100%';
   for (let repeat = 0; repeat < repeats; repeat++) {
-    works.forEach((work, index) => {
+    displayWorks.forEach((work, index) => {
       const shape = shapes[index], button = document.createElement('button'), image = new Image();
       const itemIndex = items.length;
       button.className = 'artwork'; button.type = 'button'; button.dataset.index = itemIndex;
       button.dataset.workId = work.id;
-      button.dataset.size = work.sizeCategory;
-      button.setAttribute('aria-label', work.title || work.id);
+      button.dataset.size = work.sizeCategory ?? 'unknown';
+      button.setAttribute('aria-label', websiteTitle(work) || work.id);
       button.tabIndex = repeat === middleRepeat ? 0 : -1;
       button.style.width = `${shape.width}px`; button.style.height = `${shape.height}px`;
       const view = currentView(work);
-      image.src = view.preview; image.alt = work.title || work.id;
+      image.src = view.preview; image.alt = websiteTitle(work) || work.id;
       image.width = view.width; image.height = view.height; image.decoding = 'async'; image.draggable = false;
       button.dataset.viewId = view.id;
       button.append(image); ribbon.append(button);
@@ -109,7 +123,7 @@ function makeRibbon(state = {}) {
     const candidates = items.map((item, i) => ({ item, i })).filter(({ item }) => item.work.id === state.selectedId);
     active = candidates.reduce((best, next) => Math.abs(next.item.center - anchor) < Math.abs(best.item.center - anchor) ? next : best).i;
   }
-  items[active].scale = RIBBON_FOCUS_SCALE;
+  items[active].scale = ribbonFocusScale();
   gallery.scrollLeft = 0; gallery.scrollTop = 0;
   setScroll(anchor - viewport / 2);
   rebuilding = false;
@@ -122,7 +136,8 @@ function captureRibbonState() {
   const center = scrollPosition() + viewport / 2, index = nearest(center);
   const neighbour = Math.max(0, Math.min(items.length - 1, index + (center >= items[index].center ? 1 : -1)));
   const pitch = Math.abs(items[neighbour].center - items[index].center) || 1;
-  return { index: index % works.length, fraction: (center - items[index].center) / pitch, selectedId: items[active]?.work.id };
+  return { index: works.findIndex(work => work.id === items[index].work.id),
+    fraction: (center - items[index].center) / pitch * (axis === 'x' ? 1 : -1), selectedId: items[active]?.work.id };
 }
 function recycle() {
   const center = scrollPosition() + viewport / 2;
@@ -183,6 +198,43 @@ function shadeRibbonOverlaps() {
   });
   items.forEach(item => item.button.style.setProperty('--contact-opacity', String(item.contactOpacity)));
 }
+function renderRibbonCaption() {
+  const item = items[active];
+  ribbonCaption.hidden = !item;
+  if (!item) return;
+  const view = currentView(item.work);
+  // Match the image's floating-point render geometry without layout rounding.
+  const unscaledWidth = Math.min(item.width, item.height * view.width / view.height);
+  const width = unscaledWidth * item.scale;
+  const height = width * view.height / view.width;
+  // Labels share native scrolling with the image, including between JS frames.
+  const center = item.displayCenter;
+  const photo = {
+    left: axis === 'x' ? center - width / 2 : layoutWidth / 2 - width / 2,
+    top: axis === 'x' ? layoutHeight / 2 - height / 2 : center - height / 2,
+    width, height,
+  };
+  if (ribbonCaption.dataset.workId !== item.work.id) {
+    ribbonCaption.dataset.workId = item.work.id;
+    ribbonTitle.textContent = websiteTitle(item.work);
+    ribbonYear.textContent = item.work.year || '';
+    ribbonTitle.hidden = !websiteTitle(item.work);
+    ribbonYear.hidden = !item.work.year;
+  }
+  ribbonCaption.dataset.axis = axis;
+  const gap = 16;
+  // Reserve the final enlarged width from the first frame, avoiding reflow.
+  const focusedPhotoWidth = unscaledWidth * ribbonFocusScale();
+  const titleWidth = axis === 'x' ? Math.max(120, focusedPhotoWidth)
+    : Math.min(160, Math.max(0, (layoutWidth - focusedPhotoWidth) / 2 - gap - 20));
+  ribbonTitle.style.width = `${titleWidth}px`;
+  const titleX = axis === 'x' ? photo.left : photo.left - gap - titleWidth;
+  const titleY = axis === 'x' ? photo.top - gap : photo.top;
+  const yearX = photo.left + photo.width + (axis === 'x' ? 0 : gap);
+  const yearY = photo.top + photo.height + (axis === 'x' ? gap : 0);
+  ribbonTitle.style.transform = `translate3d(${titleX}px, ${titleY}px, 0)${axis === 'x' ? ' translateY(-100%)' : ''}`;
+  ribbonYear.style.transform = `translate3d(${yearX}px, ${yearY}px, 0) ${axis === 'x' ? 'translateX(-100%)' : 'translateY(-100%)'}`;
+}
 function renderRibbon(dt, preserveSelection = false) {
     recycle();
     const center = scrollPosition() + viewport / 2;
@@ -190,7 +242,7 @@ function renderRibbon(dt, preserveSelection = false) {
     const blend = reducedMotion.matches ? 1 : 1 - Math.exp(-dt / 85);
     let extra = 0;
     const layout = items.map((item, i) => {
-      const target = i === active ? RIBBON_FOCUS_SCALE : 1;
+      const target = i === active ? ribbonFocusScale() : 1;
       item.scale += (target - item.scale) * blend;
       const addition = item.length * (item.scale - 1);
       const entry = { before: extra, addition };
@@ -215,6 +267,7 @@ function renderRibbon(dt, preserveSelection = false) {
     // Hit-test the rendered ribbon even when the pointer has not moved: native
     // scrolling, inertia and cycle recycling can bring another work under it.
     shadeRibbonOverlaps();
+    renderRibbonCaption();
     ribbonState = captureRibbonState();
     updateMouseSelection();
 }
@@ -277,6 +330,9 @@ gallery.addEventListener('keydown', event => {
   const index = Math.max(0, Math.min(items.length - 1, nearest(scrollPosition() + viewport / 2) + (next ? 1 : -1)));
   gallery.scrollTo({ [axis === 'x' ? 'left' : 'top']: items[index].center - viewport / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
 });
+function websiteTitle(work) {
+  return work.displayTitle || work.title || '';
+}
 function currentView(work) {
   return work.views?.[selectedViews.get(work.id) || 0] || work;
 }
@@ -288,7 +344,9 @@ function ribbonPhotoRect(button, view) {
   return { left: box.left + (box.width - width) / 2, top: box.top + (box.height - height) / 2, width, height };
 }
 function renderWorkInfo() {
-  document.querySelector('#viewer-title').textContent = viewerWork.title || viewerWork.id;
+  const title = document.querySelector('#viewer-title');
+  title.textContent = websiteTitle(viewerWork);
+  title.hidden = !websiteTitle(viewerWork);
   document.querySelector('#viewer-series').textContent = viewerWork.series || '';
   const rows = [
     [viewerWork.year, viewerWork.location].filter(Boolean).join(' · '),
@@ -298,11 +356,12 @@ function renderWorkInfo() {
   metadata.replaceChildren();
   rows.forEach(value => { const row = document.createElement('p'); row.textContent = value; metadata.append(row); });
   const price = viewerWork.price == null ? '' : String(viewerWork.price).trim();
-  const sold = viewerWork.sold || !price;
-  const saleRow = document.createElement('p');
-  saleRow.className = 'viewer-price' + (sold ? ' is-sold' : '');
-  saleRow.textContent = sold ? 'sold' : price;
-  metadata.append(saleRow);
+  if (viewerWork.sold || price) {
+    const saleRow = document.createElement('p');
+    saleRow.className = 'viewer-price' + (viewerWork.sold ? ' is-sold' : '');
+    saleRow.textContent = viewerWork.sold ? 'sold' : price;
+    metadata.append(saleRow);
+  }
 }
 function fitViewerImage() {
   if (!viewerView) return;
@@ -368,7 +427,7 @@ function showViewerPhoto(view, animate = false) {
   viewerView = view;
   viewerImage.src = view.preview;
   viewerImage.dataset.viewId = view.id;
-  viewerImage.alt = viewerWork.title || viewerWork.id;
+  viewerImage.alt = websiteTitle(viewerWork) || viewerWork.id;
   fitViewerImage();
   if (animate && !reducedMotion.matches) {
     viewerAnimation = viewerImage.animate([
@@ -480,7 +539,7 @@ function requestClose() {
 function stepViewer(direction) {
   if (!viewer.open || closingViewer || works.length < 2) return;
   const index = works.findIndex(work => work.id === viewerWork.id);
-  const next = (index + direction + works.length) % works.length;
+  const next = (index + direction * (axis === 'x' ? 1 : -1) + works.length) % works.length;
   viewerWork = works[next];
   // Keep the ribbon and closing animation aligned with the displayed work.
   const itemIndex = nearest(scrollPosition() + viewport / 2);
@@ -527,7 +586,7 @@ viewer.addEventListener('touchend', event => {
   const dy = event.changedTouches[0].clientY - start.y;
   if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.3) return;
   suppressViewerClickUntil = performance.now() + 500;
-  stepViewer(dx < 0 ? 1 : -1);
+  stepViewer(dx < 0 ? -1 : 1);
 }, { passive: true });
 viewer.addEventListener('touchcancel', () => { viewerTouch = null; }, { passive: true });
 viewer.addEventListener('wheel', event => {
@@ -564,7 +623,8 @@ function flushLayout() {
     if (viewer.open) {
       savedScroll = scrollPosition();
       const workIndex = works.findIndex(work => work.id === viewerWork.id);
-      openedFrom = items[middleRepeat * works.length + workIndex].button;
+      const displayIndex = axis === 'x' ? workIndex : works.length - 1 - workIndex;
+      openedFrom = items[middleRepeat * works.length + displayIndex].button;
     }
   }
   if (viewer.open && (ribbonChanged || viewer.clientWidth !== fittedViewer.width || viewer.clientHeight !== fittedViewer.height || viewerInfo.offsetWidth !== fittedViewer.infoWidth || viewerInfo.offsetHeight !== fittedViewer.infoHeight)) {
@@ -667,7 +727,7 @@ function applyFilters() {
   const oldCenterId = oldState ? works[oldState.index]?.id : null;
   works = allWorks.filter(work =>
     (!availableOnly || (!work.sold && work.price != null && String(work.price).trim() !== '')) &&
-    selectedSizes.has(work.sizeCategory)
+    (selectedSizes.has(work.sizeCategory) || (work.sizeCategory == null && selectedSizes.size === 3))
     && (selectedSeries === 'all' || work.series === selectedSeries)
   );
   const index = works.findIndex(work => work.id === oldCenterId);
@@ -716,7 +776,7 @@ document.querySelector('#contact-email').addEventListener('click', async () => {
 });
 
 try {
-  const response = await fetch('/images/khech-gallery/works.json');
+  const response = await fetch('/images/khech-gallery/works.json', { cache: 'no-store' });
   if (!response.ok) throw new Error(`Gallery data: ${response.status}`);
   allWorks = await response.json();
   works = allWorks;

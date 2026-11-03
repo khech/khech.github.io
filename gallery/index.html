@@ -12,10 +12,10 @@
       }
     } catch { /* Keep the light HTML default when the system hint is unavailable. */ }
   </script>
-  <title>Khech-Gallery</title>
+  <title>'Khech. Gallery</title>
   <meta name="description" content="Paintings by Arseniy Khechinashvili. Explore works, details and available paintings.">
   <link rel="canonical" href="https://khech.com/gallery/">
-  <link rel="icon" href="/images/markup/favicon.ico">
+  <link rel="icon" href="/images/markup/favicon.ico?v=74de8a87c6b0">
   <meta property="og:title" content="Khech-Gallery">
   <meta property="og:description" content="Paintings by Arseniy Khechinashvili.">
   <meta property="og:url" content="https://khech.com/gallery/">
@@ -24,15 +24,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic&amp;display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap">
-  <link rel="stylesheet" href="/styles/khech-gallery.css">
-  <script type="module" src="/scripts/khech-gallery.js"></script>
+  <link rel="stylesheet" href="/styles/khech-gallery.css?v=7234048b4b36">
+  <script type="module" src="/scripts/khech-gallery.js?v=54dccd1597bf"></script>
 </head>
 <body>
   <main id="gallery" class="gallery" aria-label="Галерея работ. Прокручивайте ленту; нажмите на картину, чтобы открыть её." tabindex="0">
     <div id="ribbon" class="ribbon"></div>
+    <div id="ribbon-caption" aria-hidden="true" hidden>
+      <span id="ribbon-title"></span>
+      <span id="ribbon-year"></span>
+    </div>
   </main>
   <div class="ribbon-edges" aria-hidden="true"></div>
-  <a id="gallery-brand" href="/" aria-label="Khech — главная">Khech.</a>
+  <a id="gallery-brand" href="/" aria-label="Khech — главная">
+    <img class="brand-logo-black" src="/images/markup/Khech%20Logo%20Black.png?v=539ccf1ca262" width="1656" height="816" alt="" decoding="async">
+    <img class="brand-logo-white" src="/images/markup/Khech%20Logo%20White.png?v=ec21a221e858" width="1656" height="816" alt="" decoding="async">
+  </a>
   <button id="theme-toggle" type="button" aria-label="Включить тёмный фон" aria-pressed="false"></button>
   <nav id="art-menu" aria-label="Gallery menu">
     <div class="menu-group">
