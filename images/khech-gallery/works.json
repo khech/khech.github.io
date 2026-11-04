@@ -6,7 +6,7 @@
     "location": "Moscow",
     "price": null,
     "sold": true,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -41,7 +41,7 @@
     "location": "Moscow",
     "price": null,
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": null,
     "sizeCategory": null,
@@ -108,7 +108,7 @@
     "location": "Moscow",
     "price": "500 USD",
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -136,7 +136,7 @@
     "location": "Moscow",
     "price": null,
     "sold": true,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -164,7 +164,7 @@
     "location": "Moscow",
     "price": null,
     "sold": true,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -192,7 +192,7 @@
     "location": "Moscow",
     "price": null,
     "sold": true,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -220,7 +220,7 @@
     "location": "Moscow",
     "price": "1000 USD",
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -248,7 +248,7 @@
     "location": "Moscow",
     "price": "500 USD",
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -276,7 +276,7 @@
     "location": "Moscow",
     "price": "500 USD",
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -304,7 +304,7 @@
     "location": "Moscow",
     "price": null,
     "sold": true,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -332,7 +332,7 @@
     "location": "Moscow",
     "price": "500 USD",
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": null,
     "dimensionsCm": [
       50,
@@ -360,7 +360,7 @@
     "location": "Moscow",
     "price": "1000 USD",
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": "Pink and Yellow",
     "dimensionsCm": [
       70,
@@ -388,7 +388,7 @@
     "location": "Moscow",
     "price": "1000 USD",
     "sold": false,
-    "series": "Abstract Begining",
+    "series": "Abstract Beginning",
     "subseries": "Pink and Yellow",
     "dimensionsCm": [
       70,
