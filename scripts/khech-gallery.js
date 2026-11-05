@@ -381,15 +381,23 @@ function fitViewerImage() {
   const navWidth = viewNav.hidden ? 0 : viewNav.offsetWidth;
   const navHeight = viewNav.hidden ? 0 : viewNav.offsetHeight;
   const below = !viewNav.hidden && portrait ? navHeight + 24 : 0;
+  // Thumbnails and info are placed around the work's first (main) view and stay
+  // put while other views are shown; the current view is fitted inside that frame.
+  const anchorView = viewerWork?.views?.[0] || viewerView;
+  const anchorRatio = anchorView.width / anchorView.height;
   const ratio = viewerView.width / viewerView.height;
-  let imageWidth, imageHeight, imageLeft, imageTop;
+  let anchorWidth, anchorHeight, anchorLeft, anchorTop, imageWidth, imageHeight, imageLeft, imageTop;
   if (portrait) {
     const above = infoHeight + 32;
-    imageWidth = Math.min(availableWidth, Math.max(1, availableHeight - above - below) * ratio);
+    anchorWidth = Math.min(availableWidth, Math.max(1, availableHeight - above - below) * anchorRatio);
+    anchorHeight = anchorWidth / anchorRatio;
+    const compositionTop = top + Math.max(0, (availableHeight - above - anchorHeight - below) / 2);
+    anchorLeft = left + (availableWidth - anchorWidth) / 2;
+    anchorTop = compositionTop + above;
+    imageWidth = Math.min(availableWidth, anchorHeight * ratio);
     imageHeight = imageWidth / ratio;
-    const compositionTop = top + Math.max(0, (availableHeight - above - imageHeight - below) / 2);
     imageLeft = left + (availableWidth - imageWidth) / 2;
-    imageTop = compositionTop + above;
+    imageTop = anchorTop + (anchorHeight - imageHeight) / 2;
     viewerInfo.style.left = `${left}px`;
     viewerInfo.style.top = `${compositionTop}px`;
   } else {
@@ -397,22 +405,30 @@ function fitViewerImage() {
     const rightControls = infoWidth + 44;
     // Use identical landscape composition for every input/device type.
     const reserved = 2 * Math.max(leftControls, rightControls);
-    imageWidth = Math.min(Math.max(1, availableWidth - reserved), Math.max(1, availableHeight) * ratio);
+    anchorWidth = Math.min(Math.max(1, availableWidth - reserved), Math.max(1, availableHeight) * anchorRatio);
+    anchorHeight = anchorWidth / anchorRatio;
+    anchorLeft = left + (availableWidth - anchorWidth) / 2;
+    anchorTop = top + Math.max(0, (availableHeight - anchorHeight) / 2);
+    const infoLeft = anchorLeft + anchorWidth + 44;
+    const navRight = viewNav.hidden ? left : Math.max(left, anchorLeft - navWidth - 56) + navWidth + 56;
+    const center = left + availableWidth / 2;
+    const maxWidth = Math.max(anchorWidth, 2 * Math.min(center - navRight, infoLeft - 44 - center));
+    imageWidth = Math.min(maxWidth, Math.max(1, availableHeight) * ratio);
     imageHeight = imageWidth / ratio;
     imageLeft = left + (availableWidth - imageWidth) / 2;
     imageTop = top + Math.max(0, (availableHeight - imageHeight) / 2);
-    viewerInfo.style.left = `${imageLeft + imageWidth + 44}px`;
-    viewerInfo.style.top = `${Math.max(top, Math.min(imageTop + imageHeight - infoHeight - 24, height - bottom - infoHeight))}px`;
+    viewerInfo.style.left = `${infoLeft}px`;
+    viewerInfo.style.top = `${Math.max(top, Math.min(anchorTop + anchorHeight - infoHeight - 24, height - bottom - infoHeight))}px`;
   }
   viewerImage.style.width = `${imageWidth}px`; viewerImage.style.height = `${imageHeight}px`;
   viewerImage.style.left = `${imageLeft}px`; viewerImage.style.top = `${imageTop}px`;
   if (!viewNav.hidden) {
     viewNav.style.left = portrait
-      ? `${Math.max(left, Math.min(imageLeft + imageWidth / 2 - navWidth / 2, width - right - navWidth))}px`
-      : `${Math.max(left, imageLeft - navWidth - 56)}px`;
+      ? `${Math.max(left, Math.min(anchorLeft + anchorWidth / 2 - navWidth / 2, width - right - navWidth))}px`
+      : `${Math.max(left, anchorLeft - navWidth - 56)}px`;
     viewNav.style.top = portrait
-      ? `${imageTop + imageHeight + 24}px`
-      : `${Math.max(top, Math.min(imageTop + (imageHeight - navHeight) / 2, height - bottom - navHeight))}px`;
+      ? `${anchorTop + anchorHeight + 24}px`
+      : `${Math.max(top, Math.min(anchorTop + (anchorHeight - navHeight) / 2, height - bottom - navHeight))}px`;
   }
   fittedViewer = { width, height, infoWidth: viewerInfo.offsetWidth, infoHeight: viewerInfo.offsetHeight };
 }

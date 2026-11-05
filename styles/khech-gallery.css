@@ -37,10 +37,11 @@ dialog.is-closing::backdrop { animation: viewer-veil-out 220ms ease-in both; }
 #viewer-meta p { margin: 0; font: inherit; }
 #viewer[data-info-layout="side"] #viewer-meta { font-size: .74em; }
 #viewer[data-info-layout="top"] #viewer-title { font-size: 1.5em; }
-#viewer-views { position: absolute; left: 0; top: 0; display: flex; flex-direction: column; gap: 24px; width: 80px; max-height: calc(100dvh - 48px); padding: 4px; margin: 0; overflow-y: auto; scrollbar-width: none; overscroll-behavior: contain; }
+#viewer { --view-thumb: clamp(72px, min(7.5vw, 14vh), 144px); }
+#viewer-views { position: absolute; left: 0; top: 0; display: flex; flex-direction: column; gap: 24px; width: calc(var(--view-thumb) + 8px); max-height: calc(100dvh - 48px); padding: 4px; margin: 0; overflow-y: auto; scrollbar-width: none; overscroll-behavior: contain; }
 #viewer-views[hidden] { display: none; }
 #viewer-views::-webkit-scrollbar { display: none; }
-.view-thumb { flex: 0 0 72px; display: block; width: 72px; height: 72px; padding: 0; border: 0; background: transparent; color: var(--ink); opacity: .48; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: opacity 120ms ease; }
+.view-thumb { flex: 0 0 var(--view-thumb); display: block; width: var(--view-thumb); height: var(--view-thumb); padding: 0; border: 0; background: transparent; color: var(--ink); opacity: .48; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: opacity 120ms ease; }
 .view-thumb[aria-pressed="true"], .view-thumb:hover { opacity: 1; }
 .view-thumb img { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 #viewer[data-views-layout="bottom"] #viewer-views { flex-direction: row; gap: 18px; width: max-content; max-width: calc(100vw - 48px); height: 72px; overflow-x: auto; overflow-y: hidden; }
