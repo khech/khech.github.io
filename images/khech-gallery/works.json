@@ -458,11 +458,32 @@
       70
     ],
     "sizeCategory": "M",
-    "width": 1277,
+    "width": 1313,
     "height": 1800,
-    "preview": "/images/khech-gallery/ABS-TBS-23-02__IMG-071__front--preview.jpg",
-    "image": "/images/khech-gallery/ABS-TBS-23-02__IMG-071__front.jpg",
+    "preview": "/images/khech-gallery/ABS-TBS-23-02__IMG-176__framed--preview.webp",
+    "image": "/images/khech-gallery/ABS-TBS-23-02__IMG-176__framed.webp",
     "views": [
+      {
+        "id": "ABS-TBS-23-02__IMG-176__framed",
+        "width": 1313,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-02__IMG-176__framed--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-02__IMG-176__framed.webp"
+      },
+      {
+        "id": "ABS-TBS-23-02__IMG-177__angle",
+        "width": 571,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-02__IMG-177__angle--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-02__IMG-177__angle.webp"
+      },
+      {
+        "id": "ABS-TBS-23-02__IMG-178__angle",
+        "width": 656,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-02__IMG-178__angle--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-02__IMG-178__angle.webp"
+      },
       {
         "id": "ABS-TBS-23-02__IMG-071__front",
         "width": 1277,
@@ -486,11 +507,32 @@
       70
     ],
     "sizeCategory": "M",
-    "width": 1279,
+    "width": 1313,
     "height": 1800,
-    "preview": "/images/khech-gallery/ABS-TBS-23-03__IMG-073__front--preview.jpg",
-    "image": "/images/khech-gallery/ABS-TBS-23-03__IMG-073__front.jpg",
+    "preview": "/images/khech-gallery/ABS-TBS-23-03__IMG-179__framed--preview.webp",
+    "image": "/images/khech-gallery/ABS-TBS-23-03__IMG-179__framed.webp",
     "views": [
+      {
+        "id": "ABS-TBS-23-03__IMG-179__framed",
+        "width": 1313,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-03__IMG-179__framed--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-03__IMG-179__framed.webp"
+      },
+      {
+        "id": "ABS-TBS-23-03__IMG-180__angle",
+        "width": 670,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-03__IMG-180__angle--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-03__IMG-180__angle.webp"
+      },
+      {
+        "id": "ABS-TBS-23-03__IMG-181__angle",
+        "width": 867,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-03__IMG-181__angle--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-03__IMG-181__angle.webp"
+      },
       {
         "id": "ABS-TBS-23-03__IMG-073__front",
         "width": 1279,
@@ -514,11 +556,32 @@
       70
     ],
     "sizeCategory": "M",
-    "width": 1282,
+    "width": 1317,
     "height": 1800,
-    "preview": "/images/khech-gallery/ABS-TBS-23-04__IMG-072__front--preview.jpg",
-    "image": "/images/khech-gallery/ABS-TBS-23-04__IMG-072__front.jpg",
+    "preview": "/images/khech-gallery/ABS-TBS-23-04__IMG-182__framed--preview.webp",
+    "image": "/images/khech-gallery/ABS-TBS-23-04__IMG-182__framed.webp",
     "views": [
+      {
+        "id": "ABS-TBS-23-04__IMG-182__framed",
+        "width": 1317,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-04__IMG-182__framed--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-04__IMG-182__framed.webp"
+      },
+      {
+        "id": "ABS-TBS-23-04__IMG-183__angle",
+        "width": 668,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-04__IMG-183__angle--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-04__IMG-183__angle.webp"
+      },
+      {
+        "id": "ABS-TBS-23-04__IMG-184__angle",
+        "width": 693,
+        "height": 1800,
+        "preview": "/images/khech-gallery/ABS-TBS-23-04__IMG-184__angle--preview.webp",
+        "image": "/images/khech-gallery/ABS-TBS-23-04__IMG-184__angle.webp"
+      },
       {
         "id": "ABS-TBS-23-04__IMG-072__front",
         "width": 1282,
