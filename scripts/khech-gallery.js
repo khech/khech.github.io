@@ -360,6 +360,12 @@ function renderWorkInfo() {
     const saleRow = document.createElement('p');
     saleRow.className = 'viewer-price' + (viewerWork.sold ? ' is-sold' : '');
     saleRow.textContent = viewerWork.sold ? 'sold' : price;
+    if (!viewerWork.sold) {
+      const buy = document.createElement('button');
+      buy.type = 'button'; buy.className = 'viewer-buy'; buy.textContent = 'buy';
+      buy.addEventListener('click', openBuy);
+      saleRow.append(buy);
+    }
     metadata.append(saleRow);
   }
 }
@@ -695,33 +701,43 @@ function setMenu(name) {
 }
 menuFilters.addEventListener('click', () => setMenu(openMenu === 'filters' ? null : 'filters'));
 menuContacts.addEventListener('click', () => setMenu(openMenu === 'contacts' ? null : 'contacts'));
-let closingAbout = false;
-async function dismissAbout() {
-  if (!about.open || closingAbout) return;
-  closingAbout = true;
-  const backdrop = getComputedStyle(about, '::backdrop');
-  about.style.setProperty('--about-veil-opacity', backdrop.opacity);
-  about.style.setProperty('--about-blur', backdrop.backdropFilter || backdrop.webkitBackdropFilter);
-  about.style.setProperty('--about-text-opacity', getComputedStyle(about.querySelector('.about-text')).opacity);
-  about.classList.add('is-closing');
+const buyDialog = document.querySelector('#buy');
+const closingVeils = new Set();
+async function dismissVeil(dialog) {
+  if (!dialog.open || closingVeils.has(dialog)) return;
+  closingVeils.add(dialog);
+  const backdrop = getComputedStyle(dialog, '::backdrop');
+  dialog.style.setProperty('--about-veil-opacity', backdrop.opacity);
+  dialog.style.setProperty('--about-blur', backdrop.backdropFilter || backdrop.webkitBackdropFilter);
+  dialog.style.setProperty('--about-text-opacity', getComputedStyle(dialog.querySelector('.about-text')).opacity);
+  dialog.classList.add('is-closing');
   if (!reducedMotion.matches) {
-    await Promise.all(about.getAnimations({ subtree: true }).map(animation => animation.finished.catch(() => {})));
+    await Promise.all(dialog.getAnimations({ subtree: true }).map(animation => animation.finished.catch(() => {})));
   }
-  about.close();
-  about.classList.remove('is-closing');
-  closingAbout = false;
+  dialog.close();
+  dialog.classList.remove('is-closing');
+  closingVeils.delete(dialog);
 }
 menuAbout.addEventListener('click', () => {
   setMenu(null);
   about.showModal();
 });
-about.addEventListener('click', event => {
-  if (event.target.closest('a')) return;
-  event.preventDefault();
-  event.stopPropagation();
-  dismissAbout();
+function openBuy() {
+  const title = websiteTitle(viewerWork);
+  document.querySelector('#buy-title').textContent = title ? `“${title}”` : 'this painting';
+  const subject = 'Buying ' + (title ? `“${title}”` : 'a painting') + (viewerWork.id ? ` (${viewerWork.id})` : '');
+  document.querySelector('#buy-email').href = 'mailto:arsekh@gmail.com?subject=' + encodeURIComponent(subject);
+  buyDialog.showModal();
+}
+[about, buyDialog].forEach(dialog => {
+  dialog.addEventListener('click', event => {
+    if (event.target.closest('a')) return;
+    event.preventDefault();
+    event.stopPropagation();
+    dismissVeil(dialog);
+  });
+  dialog.addEventListener('cancel', event => { event.preventDefault(); dismissVeil(dialog); });
 });
-about.addEventListener('cancel', event => { event.preventDefault(); dismissAbout(); });
 document.addEventListener('click', event => {
   if (!openMenu || artMenu.contains(event.target)) return;
   // The outside tap dismisses navigation; it does not also open a painting.

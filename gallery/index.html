@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic&amp;display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap">
-  <link rel="stylesheet" href="/styles/khech-gallery.css?v=173bb559b729">
-  <script type="module" src="/scripts/khech-gallery.js?v=218a26c1ac3e"></script>
+  <link rel="stylesheet" href="/styles/khech-gallery.css?v=a2e035f8e078">
+  <script type="module" src="/scripts/khech-gallery.js?v=9f2b7f669cd2"></script>
 </head>
 <body>
   <main id="gallery" class="gallery" aria-label="Галерея работ. Прокручивайте ленту; нажмите на картину, чтобы открыть её." tabindex="0">
@@ -45,10 +45,12 @@
     <div class="menu-group">
       <button id="menu-filters" type="button" aria-expanded="false" aria-controls="filter-options">Filters</button>
       <div id="filter-options" class="menu-options" hidden>
-        <button type="button" data-filter="available" aria-pressed="false">available</button>
-        <button type="button" data-filter="L" aria-pressed="true">large</button>
-        <button type="button" data-filter="M" aria-pressed="true">medium</button>
-        <button type="button" data-filter="S" aria-pressed="true">small</button>
+        <div class="size-options" role="group" aria-label="Availability and size">
+          <button type="button" data-filter="available" aria-pressed="false">available</button>
+          <button type="button" data-filter="L" aria-pressed="true">large</button>
+          <button type="button" data-filter="M" aria-pressed="true">medium</button>
+          <button type="button" data-filter="S" aria-pressed="true">small</button>
+        </div>
         <div class="series-options" role="group" aria-label="Series">
           <button type="button" data-series="all" aria-pressed="true">all series</button>
           <button type="button" data-series="Streets" aria-pressed="false">Streets</button>
@@ -70,12 +72,22 @@
       </div>
     </div>
   </nav>
-  <dialog id="about" aria-label="About Arseniy Khechinashvili" lang="en">
+  <dialog id="about" class="veil-dialog" aria-label="About Arseniy Khechinashvili" lang="en">
     <div class="about-text">
       <p>Hi, I’m Arseniy Khechinashvili, a multidisciplinary artist and <a href="/studio/" target="_blank" rel="noopener noreferrer">architect</a>.</p>
       <p>My work explores abstract forms, street art, and visual chronicles of urban life.</p>
       <p>Originally from Moscow, I’m now based in Tbilisi.</p>
       <p>All available works in this gallery are for sale.</p>
+    </div>
+  </dialog>
+  <dialog id="buy" class="veil-dialog" aria-label="Buy a painting" lang="en">
+    <div class="about-text">
+      <p>To buy <span id="buy-title">this painting</span>, get in touch with me through any of these contacts:</p>
+      <p class="contact-list">
+        <a id="buy-email" href="mailto:arsekh@gmail.com">arsekh@gmail.com</a>
+        <a href="https://t.me/khech" target="_blank" rel="noopener noreferrer">telegram</a>
+        <a href="https://www.instagram.com/khech_art/" target="_blank" rel="noopener noreferrer">instagram</a>
+      </p>
     </div>
   </dialog>
   <dialog id="viewer" aria-label="Просмотр картины">
