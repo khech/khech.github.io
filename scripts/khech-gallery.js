@@ -488,7 +488,7 @@ function renderViewThumbnails() {
   views.forEach((view, index) => {
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'view-thumb';
-    button.setAttribute('aria-label', index === 0 ? 'Основной вид' : `Ракурс ${index + 1}`);
+    button.setAttribute('aria-label', index === 0 ? 'Main view' : `View ${index + 1}`);
     button.setAttribute('aria-pressed', String(index === (selectedViews.get(viewerWork.id) || 0)));
     const image = new Image(); image.src = view.preview; image.alt = ''; image.draggable = false;
     button.append(image); button.addEventListener('click', () => chooseView(index));
@@ -663,7 +663,7 @@ const themeToggle = document.querySelector('#theme-toggle');
 function applyTheme(dark) {
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
   themeToggle.setAttribute('aria-pressed', String(dark));
-  themeToggle.setAttribute('aria-label', dark ? 'Включить светлый фон' : 'Включить тёмный фон');
+  themeToggle.setAttribute('aria-label', dark ? 'Switch to light background' : 'Switch to dark background');
 }
 applyTheme(document.documentElement.dataset.theme === 'dark');
 themeToggle.addEventListener('click', () => {
