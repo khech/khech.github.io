@@ -36,7 +36,7 @@
   },
   {
     "id": "ABS-MOW-18-16",
-    "title": "",
+    "title": "Tiny Draft",
     "year": "2018",
     "location": "Moscow",
     "price": null,
@@ -1038,6 +1038,90 @@
     ]
   },
   {
+    "id": "STR-TBS-26-TEETH-01",
+    "title": "Limassol Streets Teeth 1",
+    "year": "2026",
+    "location": "Limassol",
+    "price": "300 USD",
+    "sold": false,
+    "series": "Streets",
+    "subseries": "Limassol Streets Teeth",
+    "dimensionsCm": [
+      30,
+      40
+    ],
+    "sizeCategory": "M",
+    "width": 1433,
+    "height": 1800,
+    "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front--preview.webp",
+    "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front.webp",
+    "views": [
+      {
+        "id": "STR-TBS-26-TEETH-01__IMG-198__front",
+        "width": 1433,
+        "height": 1800,
+        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front--preview.webp",
+        "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front.webp"
+      },
+      {
+        "id": "STR-TBS-26-TEETH-01__IMG-199__angle",
+        "width": 399,
+        "height": 1800,
+        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-199__angle--preview.webp",
+        "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-199__angle.webp"
+      },
+      {
+        "id": "STR-TBS-26-TEETH-01__IMG-200__angle",
+        "width": 400,
+        "height": 1800,
+        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-200__angle--preview.webp",
+        "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-200__angle.webp"
+      }
+    ]
+  },
+  {
+    "id": "STR-TBS-26-TEETH-02",
+    "title": "Limassol Streets Teeth 2",
+    "year": "2026",
+    "location": "Limassol",
+    "price": "300 USD",
+    "sold": false,
+    "series": "Streets",
+    "subseries": "Limassol Streets Teeth",
+    "dimensionsCm": [
+      30,
+      40
+    ],
+    "sizeCategory": "M",
+    "width": 1437,
+    "height": 1800,
+    "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front--preview.webp",
+    "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front.webp",
+    "views": [
+      {
+        "id": "STR-TBS-26-TEETH-02__IMG-195__front",
+        "width": 1437,
+        "height": 1800,
+        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front--preview.webp",
+        "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front.webp"
+      },
+      {
+        "id": "STR-TBS-26-TEETH-02__IMG-196__angle",
+        "width": 396,
+        "height": 1800,
+        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-196__angle--preview.webp",
+        "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-196__angle.webp"
+      },
+      {
+        "id": "STR-TBS-26-TEETH-02__IMG-197__angle",
+        "width": 391,
+        "height": 1800,
+        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-197__angle--preview.webp",
+        "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-197__angle.webp"
+      }
+    ]
+  },
+  {
     "id": "STR-M-BEG-26-01",
     "title": "Circus",
     "year": "2026",
@@ -1290,90 +1374,6 @@
     ]
   },
   {
-    "id": "STR-TBS-26-TEETH-01",
-    "title": "Tbilisi Streets Teeth 1",
-    "year": "2026",
-    "location": "Tbilisi",
-    "price": "300 USD",
-    "sold": false,
-    "series": "Streets",
-    "subseries": "Tbilisi Streets Teeth",
-    "dimensionsCm": [
-      30,
-      40
-    ],
-    "sizeCategory": "M",
-    "width": 1433,
-    "height": 1800,
-    "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front--preview.webp",
-    "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front.webp",
-    "views": [
-      {
-        "id": "STR-TBS-26-TEETH-01__IMG-198__front",
-        "width": 1433,
-        "height": 1800,
-        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front--preview.webp",
-        "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-198__front.webp"
-      },
-      {
-        "id": "STR-TBS-26-TEETH-01__IMG-199__angle",
-        "width": 399,
-        "height": 1800,
-        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-199__angle--preview.webp",
-        "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-199__angle.webp"
-      },
-      {
-        "id": "STR-TBS-26-TEETH-01__IMG-200__angle",
-        "width": 400,
-        "height": 1800,
-        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-200__angle--preview.webp",
-        "image": "/images/khech-gallery/STR-TBS-26-TEETH-01__IMG-200__angle.webp"
-      }
-    ]
-  },
-  {
-    "id": "STR-TBS-26-TEETH-02",
-    "title": "Tbilisi Streets Teeth 2",
-    "year": "2026",
-    "location": "Tbilisi",
-    "price": "300 USD",
-    "sold": false,
-    "series": "Streets",
-    "subseries": "Tbilisi Streets Teeth",
-    "dimensionsCm": [
-      30,
-      40
-    ],
-    "sizeCategory": "M",
-    "width": 1437,
-    "height": 1800,
-    "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front--preview.webp",
-    "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front.webp",
-    "views": [
-      {
-        "id": "STR-TBS-26-TEETH-02__IMG-195__front",
-        "width": 1437,
-        "height": 1800,
-        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front--preview.webp",
-        "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-195__front.webp"
-      },
-      {
-        "id": "STR-TBS-26-TEETH-02__IMG-196__angle",
-        "width": 396,
-        "height": 1800,
-        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-196__angle--preview.webp",
-        "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-196__angle.webp"
-      },
-      {
-        "id": "STR-TBS-26-TEETH-02__IMG-197__angle",
-        "width": 391,
-        "height": 1800,
-        "preview": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-197__angle--preview.webp",
-        "image": "/images/khech-gallery/STR-TBS-26-TEETH-02__IMG-197__angle.webp"
-      }
-    ]
-  },
-  {
     "id": "STR-LMS-26-01",
     "title": "Limassol Streets 1",
     "year": "2026",
@@ -1492,7 +1492,7 @@
       },
       {
         "id": "STR-TBS-26-EYES__IMG-236__angle",
-        "width": 459,
+        "width": 461,
         "height": 1800,
         "preview": "/images/khech-gallery/STR-TBS-26-EYES__IMG-236__angle--preview.webp",
         "image": "/images/khech-gallery/STR-TBS-26-EYES__IMG-236__angle.webp"
